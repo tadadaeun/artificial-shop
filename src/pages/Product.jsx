@@ -1,31 +1,15 @@
 import { Add, Remove } from "@material-ui/icons";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Navbar from "../components/Navbar";
+import ProductImage from "../components/ProductImage";
+import { PRODUCTS } from "../data";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
-`;
-
-const ImgContainer = styled.div`
-  flex: 1;
-  display: flex;
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 70vh;
-  object-fit: contain;
-`;
-
-const ImgPreContainer = styled.div``;
-
-const ImgPre = styled.img`
-  width: 100px;
-  border: 1px solid gray;
-  cursor: pointer;
 `;
 
 const InfoContainer = styled.div`
@@ -34,7 +18,7 @@ const InfoContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-weight: 200;
+  font-weight: 300;
 `;
 
 const Desc = styled.p`
@@ -87,28 +71,29 @@ const Button = styled.button`
 `;
 
 const Product = () => {
+  const { pathname } = useLocation();
+
+  const splits = pathname.split("/");
+
+  const prodId = Number(splits[splits.length - 1]);
+
+  const { title, price, detailImages } = PRODUCTS[prodId - 1];
+
   return (
     <Container>
       <Announcement />
       <Navbar />
       <Wrapper>
-        <ImgContainer>
-          <ImgPreContainer>
-            <ImgPre src="https://i.pinimg.com/originals/e2/dd/88/e2dd88046b3ccb68edbd93d33ccf5c49.png"></ImgPre>
-            <ImgPre src="https://i.pinimg.com/originals/e2/dd/88/e2dd88046b3ccb68edbd93d33ccf5c49.png"></ImgPre>
-            <ImgPre src="https://i.pinimg.com/originals/e2/dd/88/e2dd88046b3ccb68edbd93d33ccf5c49.png"></ImgPre>
-          </ImgPreContainer>
-          <Image src="https://target.scene7.com/is/image/Target/GUEST_5d57e38b-4513-4964-81fb-c723d71713fb?wid=1323&hei=1323&fmt=pjpeg" />
-        </ImgContainer>
+        <ProductImage detailImages={detailImages} />
         <InfoContainer>
-          <Title>This is a Title</Title>
+          <Title>{title}</Title>
           <Desc>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab porro
             autem quod, necessitatibus omnis officia soluta dolor adipisci sequi
             sed debitis commodi libero dolores totam fugit tempore incidunt,
             culpa quibusdam.
           </Desc>
-          <Price>$ 20</Price>
+          <Price>${price}</Price>
           <AddContainer>
             <AmountContainer>
               <Remove />

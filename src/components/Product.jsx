@@ -1,74 +1,87 @@
-import {
-  FavoriteBorderOutlined,
-  SearchOutlined,
-  ShoppingCartOutlined,
-} from "@material-ui/icons";
+import { FavoriteBorderOutlined } from "@material-ui/icons";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
-const Info = styled.div`
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease;
-`;
+import { ShopContext } from "../context/shop-context";
 
 const Container = styled.div`
   flex: 1;
-  margin: 5px;
-  min-width: 300px;
-  height: 350px;
+  margin: 50px 5px 5px 5px;
+  min-width: 280px;
+  height: auto;
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   background-color: white;
-
-  &:hover ${Info} {
-    opacity: 1;
-  }
+  border-bottom: 1px solid #c5c5c5;
+  border-right: 1px solid #c5c5c5;
 `;
 
 const Image = styled.img`
-  height: 75%;
+  width: 100%;
   z-index: 2;
 `;
 
-const Icon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const Info = styled.div``;
+
+const Title = styled.div`
+  font-weight: 500;
+  margin: 20px 10px 10px 10px;
+`;
+
+const Price = styled.div`
+  color: #232323;
   margin: 10px;
-  transition: all 0.5s ease;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 10px 20px 10px 10px;
+`;
+
+const Button = styled.div`
+  padding: 10px;
+  background-color: #006600;
+  font-size: 13px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 300;
   &:hover {
-    background-color: #e9f5f5;
-    transform: scale(1.1);
+    background-color: #194919;
   }
 `;
 
-const Product = ({ item }) => {
+const Icon = styled.div`
+  margin: 10px 20px 10px 10px;
+  cursor: pointer;
+`;
+
+const Product = (props) => {
+  const { id, title, price, img } = props.data;
+  const { addToCart, cartItems } = useContext(ShopContext);
+  const navigate = useNavigate();
+
+  const cartItemAmount = cartItems[id];
   return (
-    <Container>
-      <Image src={item.img} />
+    <Container onClick={() => navigate("/product/" + id)}>
+      <Image src={img} />
       <Info>
+        <Title>{title}</Title>
+        <Price>${price}</Price>
+      </Info>
+      <ButtonContainer>
         <Icon>
           <FavoriteBorderOutlined />
         </Icon>
-        <Icon>
-          <ShoppingCartOutlined />
-        </Icon>
-      </Info>
+        <Button onClick={() => addToCart(id)}>
+          Add to cart {cartItemAmount > 0 && <> ({cartItemAmount}) </>}
+        </Button>
+      </ButtonContainer>
     </Container>
   );
 };

@@ -5,9 +5,7 @@ import styled from "styled-components";
 import ProductsList from "../components/ProductsList";
 import Footer from "../components/Footer";
 
-const Container = styled.div`
-  overflow: hidden;
-`;
+const Container = styled.div``;
 
 const Home = () => {
   return (

@@ -1,25 +1,19 @@
-import { useEffect, useState } from "react";
+import { PRODUCTS } from "../data";
 import styled from "styled-components";
-import { popularProducts } from "../data";
 import Product from "./Product";
 
 const Container = styled.div`
-  padding: 20px;
+  margin: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 `;
 
-const Products = ({ cat, filters, sort }) => {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-
-  useEffect(() => {}, [cat]);
-
+const Products = () => {
   return (
     <Container>
-      {popularProducts.map((item) => (
-        <Product item={item} key={item.id} />
+      {PRODUCTS.map((product) => (
+        <Product data={product} key={product.id} />
       ))}
     </Container>
   );
