@@ -163,7 +163,7 @@ const Cart = () => {
               <Info>
                 <Product>
                   {PRODUCTS.map((product) => {
-                    if (cartItems[product.id] && cartItems[product.id] !== 0) {
+                    if (cartItems[product.id] !== 0) {
                       return <CartItem data={product} key={product.id} />;
                     }
                   })}

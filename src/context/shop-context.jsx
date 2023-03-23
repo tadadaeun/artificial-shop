@@ -57,15 +57,11 @@ export const ShopContextProvider = (props) => {
   };
 
   const addToCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] ?? 0) + 1 }));
+    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
   };
 
   const removeCartItem = (itemId) => {
-    setCartItems((prev) => {
-      let newCart = { ...prev };
-      delete newCart[itemId];
-      return newCart;
-    });
+    setCartItems((prev) => ({ ...prev, [itemId]: 0 }));
   };
 
   const removeFromCart = (itemId) => {
