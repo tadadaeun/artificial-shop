@@ -41,8 +41,12 @@ const ProductAmountContainer = styled.div`
 const ProductAmount = styled.input`
   font-size: 24px;
   margin: 5px;
+  width: 70px;
+  text-align: center;
   ${mobile({ margin: "5px 15px" })}
 `;
+
+const SaveButton = styled.button``;
 
 const ProductPrice = styled.div`
   font-size: 30px;
@@ -52,7 +56,14 @@ const ProductPrice = styled.div`
 
 export const CartItem = (props) => {
   const { id, title, price, img } = props.data;
-  const { cartItems, addToCart, removeFromCart } = useContext(ShopContext);
+  const {
+    cartItems,
+    addToCart,
+    removeFromCart,
+    updateCartItemCount,
+    addToWish,
+    emptyCart,
+  } = useContext(ShopContext);
 
   return (
     <ProductContainer>
@@ -66,9 +77,15 @@ export const CartItem = (props) => {
       </ProductDetail>
       <PriceDetail>
         <ProductAmountContainer>
-          <Add onClick={() => addToCart(id)} />
-          <ProductAmount value={cartItems[id]}></ProductAmount>
+          <SaveButton onClick={() => addToWish(id)}>
+            Save it for later
+          </SaveButton>
           <Remove onClick={() => removeFromCart(id)} />
+          <ProductAmount
+            value={cartItems[id]}
+            onChange={(e) => updateCartItemCount(Number(e.target.value), id)}
+          ></ProductAmount>
+          <Add onClick={() => addToCart(id)} />
         </ProductAmountContainer>
         <ProductPrice>$ {price}</ProductPrice>
       </PriceDetail>

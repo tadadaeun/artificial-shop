@@ -6,6 +6,8 @@ import { PRODUCTS } from "../data";
 import { mobile } from "../responsive";
 import { CartItem } from "../components/CartItem";
 import { ShopContext } from "../context/shop-context";
+import { useNavigate } from "react-router-dom";
+import WishListSuggestion from "../components/WishListSuggestion";
 
 const Container = styled.div``;
 
@@ -41,6 +43,24 @@ const Bottom = styled.div`
   ${mobile({ flexDirection: "column" })}
 `;
 
+const ProductContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const WhishListContainer = styled.div`
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 6px;
+  margin: 30px 0;
+`;
+
+const WhishListItems = styled.div`
+  display: flex;
+  padding: 20px;
+`;
+
 const Info = styled.div`
   flex: 3;
 `;
@@ -59,7 +79,7 @@ const Hr = styled.hr`
 `;
 
 const Summary = styled.div`
-  flex: 1;
+  width: 30vw;
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 20px;
@@ -82,7 +102,7 @@ const SummaryItemText = styled.span``;
 
 const SummaryItemPrice = styled.span``;
 
-const Button = styled.button`
+const CheckOutButton = styled.button`
   width: 100%;
   padding: 10px;
   background-color: #006600;
@@ -95,8 +115,33 @@ const Button = styled.button`
   }
 `;
 
+const ContinueButton = styled.button`
+  width: 100%;
+  padding: 10px;
+  background-color: #b1b1b1;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  margin: 30px 0;
+  &:hover {
+    background-color: #006600;
+  }
+`;
+
 const Cart = () => {
-  const { cartItems } = useContext(ShopContext);
+  const {
+    wishItems,
+    cartItems,
+    getTotalCartPrice,
+    getTotalCartAmount,
+    getTotalWishAmount,
+  } = useContext(ShopContext);
+  const totalPrice = getTotalCartPrice();
+  const totalAmount = getTotalCartAmount();
+  const totalWishAmount = getTotalWishAmount();
+
+  const navigate = useNavigate();
 
   return (
     <Container>
@@ -106,32 +151,51 @@ const Cart = () => {
         <Title>YOUR BAG</Title>
         <Top>
           <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
-            <TopText>Your Wishlist (0)</TopText>
+            <TopText>Shopping Bag({totalAmount})</TopText>
+            <TopText onClick={() => navigate("/WishList")}>
+              Your Wishlist ({totalWishAmount})
+            </TopText>
           </TopTexts>
         </Top>
         <Bottom>
-          <Info>
-            <Product>
-              {PRODUCTS.map((product) => {
-                if (cartItems[product.id] !== 0) {
-                  return <CartItem data={product} key={product.id} />;
-                }
-              })}
-            </Product>
-            <Hr />
-          </Info>
+          <ProductContainer>
+            {totalPrice > 0 ? (
+              <Info>
+                <Product>
+                  {PRODUCTS.map((product) => {
+                    if (cartItems[product.id] !== 0) {
+                      return <CartItem data={product} key={product.id} />;
+                    }
+                  })}
+                </Product>
+                <Hr />
+              </Info>
+            ) : (
+              <h1>Your cart is empty! </h1>
+            )}
+            <WhishListContainer>
+              <WhishListItems>
+                <div>Saved for later</div>
+                {PRODUCTS.map((product) => {
+                  if (wishItems[product.id] !== 0) {
+                    return (
+                      <WishListSuggestion data={product} key={product.id} />
+                    );
+                  }
+                })}
+              </WhishListItems>
+            </WhishListContainer>
+          </ProductContainer>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-            <SummaryItem>
-              <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
-            </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ 80</SummaryItemPrice>
+              <SummaryItemPrice>$ {totalPrice}</SummaryItemPrice>
             </SummaryItem>
-            <Button>CHECKOUT NOW</Button>
+            <CheckOutButton>CHECKOUT NOW</CheckOutButton>
+            <ContinueButton onClick={() => navigate("/")}>
+              Continue Shopping
+            </ContinueButton>
           </Summary>
         </Bottom>
       </Wrapper>

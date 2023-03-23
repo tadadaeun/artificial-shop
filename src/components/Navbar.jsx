@@ -6,9 +6,10 @@ import {
   FavoriteBorderOutlined,
 } from "@material-ui/icons";
 import Badge from "@mui/material/Badge";
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { ShopContext } from "../context/shop-context";
 
 const Container = styled.div`
   height: 70px;
@@ -69,6 +70,9 @@ const Input = styled.input`
   border: none;
   background-color: #f2f2f2;
   color: #595959;
+  &:focus {
+    outline: none !important;
+  }
 `;
 
 const Right = styled.div`
@@ -86,6 +90,16 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  const { getTotalCartAmount, getTotalWishAmount } = useContext(ShopContext);
+  const totalAmount = getTotalCartAmount();
+  const totalWishAmount = getTotalWishAmount();
+
+  const [query, setQuery] = useState();
+
+  const search = (data) => {
+    return data.filter((item) => item.title.toLowerCase().includes(query));
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -95,26 +109,31 @@ const Navbar = () => {
           </Link>
         </Left>
         <Center>
-          <Link to="/product" style={{ textDecoration: "none" }}>
-            <Menu>Products</Menu>
-          </Link>
+          <Menu>Products</Menu>
           <Menu>Categories</Menu>
           <Menu>Deal</Menu>
           <Menu>What's New</Menu>
           <SearchContainer>
-            <Input placeholder="Search" />
+            <Input
+              placeholder="Search"
+              onChange={(e) => {
+                setQuery(e.target.value);
+              }}
+            />
             <Search style={{ color: "gray", fontSize: 16 }} />
           </SearchContainer>
         </Center>
         <Right>
-          <MenuItem>
-            <Badge badgeContent={2} color="success">
-              <FavoriteBorderOutlined />
-            </Badge>
-          </MenuItem>
+          <Link to="/WishList">
+            <MenuItem>
+              <Badge badgeContent={totalWishAmount} color="success">
+                <FavoriteBorderOutlined />
+              </Badge>
+            </MenuItem>
+          </Link>
           <Link to="/cart">
             <MenuItem>
-              <Badge badgeContent={4} color="success">
+              <Badge badgeContent={totalAmount} color="success">
                 <ShoppingCartOutlined />
               </Badge>
             </MenuItem>
