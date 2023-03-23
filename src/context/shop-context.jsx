@@ -1,4 +1,3 @@
-import { math } from "mathjs";
 import React, { createContext, useState } from "react";
 import { PRODUCTS } from "../data";
 
