@@ -17,6 +17,8 @@ const Container = styled.div`
   border-right: 1px solid #c5c5c5;
 `;
 
+const ProductContainer = styled.div``;
+
 const Image = styled.img`
   width: 100%;
   z-index: 2;
@@ -51,6 +53,7 @@ const Button = styled.div`
   border-radius: 5px;
   cursor: pointer;
   font-weight: 300;
+  transition: all 0.3s ease;
   &:hover {
     background-color: #194919;
   }
@@ -59,24 +62,31 @@ const Button = styled.div`
 const Icon = styled.div`
   margin: 10px 20px 10px 10px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const Product = (props) => {
   const { id, title, price, img } = props.data;
-  const { addToCart, cartItems } = useContext(ShopContext);
+  const { addToCart, cartItems, wishItems, addToWish } =
+    useContext(ShopContext);
   const navigate = useNavigate();
 
   const cartItemAmount = cartItems[id];
   return (
-    <Container onClick={() => navigate("/product/" + id)}>
-      <Image src={img} />
-      <Info>
-        <Title>{title}</Title>
-        <Price>${price}</Price>
-      </Info>
+    <Container>
+      <ProductContainer onClick={() => navigate("/product/" + id)}>
+        <Image src={img} />
+        <Info>
+          <Title>{title}</Title>
+          <Price>${price}</Price>
+        </Info>
+      </ProductContainer>
       <ButtonContainer>
         <Icon>
-          <FavoriteBorderOutlined />
+          <FavoriteBorderOutlined onClick={() => addToWish(id)} />
         </Icon>
         <Button onClick={() => addToCart(id)}>
           Add to cart {cartItemAmount > 0 && <> ({cartItemAmount}) </>}

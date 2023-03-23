@@ -8,15 +8,16 @@ import {
 import React from "react";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
-import Product from "./pages/Product";
+import WishList from "./pages/WishList";
 import { ShopContextProvider } from "./context/shop-context";
+import ProductPage from "./pages/ProductPage";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
-  { path: "/product", element: <Product /> },
-  { path: "/product/:id", element: <Product /> },
+  { path: "/product", element: <ProductPage /> },
+  { path: "/product/:id", element: <ProductPage /> },
   { path: "/cart", element: <Cart /> },
-  { path: "/cart2", element: <Cart /> },
+  { path: "/wishlist", element: <WishList /> },
 ]);
 
 function App() {

@@ -38,9 +38,6 @@ const ProductImage = ({ detailImages = [] }) => {
             src={detailImg}
           ></ImgPre>
         ))}
-        {/*         
-        <ImgPre src="https://i.pinimg.com/originals/e2/dd/88/e2dd88046b3ccb68edbd93d33ccf5c49.png"></ImgPre>
-        <ImgPre src="https://i.pinimg.com/originals/e2/dd/88/e2dd88046b3ccb68edbd93d33ccf5c49.png"></ImgPre> */}
       </ImgPreContainer>
       <Image>
         <GlassMagnifier

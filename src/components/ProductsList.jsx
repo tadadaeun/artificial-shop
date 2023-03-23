@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Products from "./Products";
 
@@ -11,10 +12,12 @@ const ProductContainer = styled.div`
 
 const FilterContainer = styled.div`
   margin: 80px 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 `;
 
 const Filter = styled.div`
-  display: flex;
   align-items: center;
 `;
 
@@ -23,37 +26,50 @@ const FilterTitle = styled.span`
   font-weight: 500;
 `;
 
-const FilterColor = styled.div`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: ${(props) => props.color};
-  margin: 0 5px;
-  cursor: pointer;
-`;
-
-const FilterSize = styled.select`
+const FilterOptions = styled.select`
   margin-left: 10px;
   padding: 10px;
 `;
 
-const FilterSizeOption = styled.option``;
+const FilterOption = styled.option``;
 
 const ProductsList = () => {
+  const location = useLocation();
+  const cat = location.pathname.split("/")[0];
+  const [filters, setFilters] = useState({});
+  const [sort, setSort] = useState("newest");
+  const handleFilters = (e) => {
+    const value = e.target.value;
+    setFilters({
+      ...filters,
+      [e.target.name]: value,
+    });
+  };
+
+  console.log(filters);
+
   return (
     <Container>
       <FilterContainer>
         <Filter>
+          <FilterTitle>Filtered by :</FilterTitle>
+          <FilterOptions name="filter" onChange={handleFilters}>
+            <FilterOption>popular</FilterOption>
+            <FilterOption>new</FilterOption>
+            <FilterOption>good nutrient</FilterOption>
+          </FilterOptions>
+        </Filter>
+        <Filter>
           <FilterTitle>Sort by :</FilterTitle>
-          <FilterSize>
-            <FilterSizeOption>popular</FilterSizeOption>
-            <FilterSizeOption>newest</FilterSizeOption>
-            <FilterSizeOption>similar</FilterSizeOption>
-          </FilterSize>
+          <FilterOptions name="sort" onChange={(e) => setSort(e.target.value)}>
+            <FilterOption value="lowest">lowest price</FilterOption>
+            <FilterOption value="highest">highest price</FilterOption>
+            <FilterOption value="newest">newest</FilterOption>
+          </FilterOptions>
         </Filter>
       </FilterContainer>
       <ProductContainer>
-        <Products />
+        <Products cat={cat} filters={filters} sort={sort} />
       </ProductContainer>
     </Container>
   );

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import { Add, Remove } from "@material-ui/icons";
 import { ShopContext } from "../context/shop-context";
 
 const ProductContainer = styled.div``;
@@ -46,7 +45,7 @@ const ProductAmount = styled.input`
   ${mobile({ margin: "5px 15px" })}
 `;
 
-const SaveButton = styled.button``;
+const RemoveBtn = styled.button``;
 
 const ProductPrice = styled.div`
   font-size: 30px;
@@ -54,15 +53,25 @@ const ProductPrice = styled.div`
   ${mobile({ marginBottom: "20px" })}
 `;
 
-export const CartItem = (props) => {
+const Button = styled.div`
+  padding: 10px;
+  background-color: #006600;
+  font-size: 13px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 300;
+  &:hover {
+    background-color: #194919;
+  }
+`;
+
+export const WishItem = (props) => {
   const { id, title, price, img } = props.data;
-  const {
-    cartItems,
-    addToCart,
-    removeFromCart,
-    updateCartItemCount,
-    addToWish,
-  } = useContext(ShopContext);
+  const { wishItems, removeFromWish, addToCart, cartItems } =
+    useContext(ShopContext);
+  const cartItemAmount = cartItems[id];
 
   return (
     <ProductContainer>
@@ -76,18 +85,15 @@ export const CartItem = (props) => {
       </ProductDetail>
       <PriceDetail>
         <ProductAmountContainer>
-          <SaveButton onClick={() => addToWish(id)}>
-            Save it for later
-          </SaveButton>
-          <Remove onClick={() => removeFromCart(id)} />
-          <ProductAmount
-            value={cartItems[id]}
-            onChange={(e) => updateCartItemCount(Number(e.target.value), id)}
-          ></ProductAmount>
-          <Add onClick={() => addToCart(id)} />
+          <RemoveBtn onClick={() => removeFromWish(id)}>
+            Remove from wishlist
+          </RemoveBtn>
+          <Button onClick={() => addToCart(id)}>Add to cart</Button>
         </ProductAmountContainer>
         <ProductPrice>$ {price}</ProductPrice>
       </PriceDetail>
     </ProductContainer>
   );
 };
+
+export default WishItem;
