@@ -1,3 +1,4 @@
+import { math } from "mathjs";
 import React, { createContext, useState } from "react";
 import { PRODUCTS } from "../data";
 
@@ -28,7 +29,7 @@ export const ShopContextProvider = (props) => {
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
         let itemInfo = PRODUCTS.find((product) => product.id === Number(item));
-        totalAmount += cartItems[item] * itemInfo.price;
+        totalAmount += Number((cartItems[item] * itemInfo.price).toFixed(2));
       }
     }
     return totalAmount;
@@ -39,7 +40,7 @@ export const ShopContextProvider = (props) => {
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
         let itemInfo = PRODUCTS.find((product) => product.id === Number(item));
-        totalAmount = cartItems[item];
+        totalAmount += cartItems[item];
       }
     }
     return totalAmount;
@@ -50,14 +51,22 @@ export const ShopContextProvider = (props) => {
     for (const item in wishItems) {
       if (wishItems[item] > 0) {
         let itemInfo = PRODUCTS.find((product) => product.id === Number(item));
-        totalWishAmount = wishItems[item];
+        totalWishAmount += wishItems[item];
       }
     }
     return totalWishAmount;
   };
 
   const addToCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+    setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] ?? 0) + 1 }));
+  };
+
+  const removeCartItem = (itemId) => {
+    setCartItems((prev) => {
+      let newCart = { ...prev };
+      delete newCart[itemId];
+      return newCart;
+    });
   };
 
   const removeFromCart = (itemId) => {
@@ -84,6 +93,7 @@ export const ShopContextProvider = (props) => {
     cartItems,
     addToCart,
     removeFromCart,
+    removeCartItem,
     updateCartItemCount,
     getTotalCartPrice,
     getTotalCartAmount,

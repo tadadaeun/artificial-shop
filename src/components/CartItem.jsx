@@ -60,6 +60,7 @@ export const CartItem = (props) => {
     cartItems,
     addToCart,
     removeFromCart,
+    removeCartItem,
     updateCartItemCount,
     addToWish,
   } = useContext(ShopContext);
@@ -76,14 +77,19 @@ export const CartItem = (props) => {
       </ProductDetail>
       <PriceDetail>
         <ProductAmountContainer>
-          <SaveButton onClick={() => addToWish(id)}>
+          <SaveButton
+            onClick={() => {
+              removeCartItem(id);
+              addToWish(id);
+            }}>
             Save it for later
           </SaveButton>
           <Remove onClick={() => removeFromCart(id)} />
           <ProductAmount
             value={cartItems[id]}
-            onChange={(e) => updateCartItemCount(Number(e.target.value), id)}
-          ></ProductAmount>
+            onChange={(e) =>
+              updateCartItemCount(Number(e.target.value), id)
+            }></ProductAmount>
           <Add onClick={() => addToCart(id)} />
         </ProductAmountContainer>
         <ProductPrice>$ {price}</ProductPrice>

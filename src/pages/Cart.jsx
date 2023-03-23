@@ -163,7 +163,7 @@ const Cart = () => {
               <Info>
                 <Product>
                   {PRODUCTS.map((product) => {
-                    if (cartItems[product.id] !== 0) {
+                    if (cartItems[product.id] && cartItems[product.id] !== 0) {
                       return <CartItem data={product} key={product.id} />;
                     }
                   })}
@@ -188,7 +188,7 @@ const Cart = () => {
           </ProductContainer>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-            <SummaryItem type="total">
+            <SummaryItem type='total'>
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ {totalPrice}</SummaryItemPrice>
             </SummaryItem>
