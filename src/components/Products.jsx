@@ -17,10 +17,10 @@ const Test = styled.div`
   background-color: black;
 `;
 
-const Products = ({ cat, filters, sort }) => {
+const Products = ({ cat, filters, sort, productList = [] }) => {
   return (
     <Container>
-      {PRODUCTS.map((product) => (
+      {productList.map((product) => (
         <Product data={product} key={product.id} />
       ))}
     </Container>

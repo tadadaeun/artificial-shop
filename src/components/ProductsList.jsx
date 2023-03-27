@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { PRODUCTS } from "../data";
 import Products from "./Products";
 
 const Container = styled.div``;
@@ -36,24 +37,32 @@ const FilterOption = styled.option``;
 const ProductsList = () => {
   const location = useLocation();
   const cat = location.pathname.split("/")[0];
-  const [filters, setFilters] = useState({});
-  const [sort, setSort] = useState("newest");
-  const handleFilters = (e) => {
-    const value = e.target.value;
-    setFilters({
-      ...filters,
-      [e.target.name]: value,
-    });
-  };
+  const [filter, setFilter] = useState("all");
+  const [sort, setSort] = useState("lowest");
 
-  console.log(filters);
+  const refinedData = PRODUCTS.filter(({ category }) => {
+    if (filter === "all") return true;
+    return category === filter;
+  }).sort((a, b) => {
+    if (sort === "lowest") return a.price - b.price;
+    else if (sort === "highest") return b.price - a.price;
+    else if (sort === "nutrient") {
+      // TODO - 오브젝트 매핑추가!
+      return b.nut > a.nut;
+    }
+  });
 
   return (
     <Container>
       <FilterContainer>
         <Filter>
           <FilterTitle>Filtered by :</FilterTitle>
-          <FilterOptions name="filter" onChange={handleFilters}>
+          <FilterOptions
+            name="filter"
+            onChange={(e) => setFilter(e.target.value)}
+            defaultValue="all"
+          >
+            <FilterOption value="all">all product</FilterOption>
             <FilterOption>popular</FilterOption>
             <FilterOption>new</FilterOption>
             <FilterOption>good nutrient</FilterOption>
@@ -61,15 +70,25 @@ const ProductsList = () => {
         </Filter>
         <Filter>
           <FilterTitle>Sort by :</FilterTitle>
-          <FilterOptions name="sort" onChange={(e) => setSort(e.target.value)}>
+          <FilterOptions
+            name="sort"
+            onChange={(e) => setSort(e.target.value)}
+            defaultValue="lowest"
+          >
             <FilterOption value="lowest">lowest price</FilterOption>
             <FilterOption value="highest">highest price</FilterOption>
             <FilterOption value="newest">newest</FilterOption>
+            <FilterOption value="nutrient">nutrient</FilterOption>
           </FilterOptions>
         </Filter>
       </FilterContainer>
       <ProductContainer>
-        <Products cat={cat} filters={filters} sort={sort} />
+        <Products
+          cat={cat}
+          filter={filter}
+          sort={sort}
+          productList={refinedData}
+        />
       </ProductContainer>
     </Container>
   );

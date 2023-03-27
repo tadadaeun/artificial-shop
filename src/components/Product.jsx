@@ -69,7 +69,7 @@ const Icon = styled.div`
 `;
 
 const Product = (props) => {
-  const { id, title, price, img } = props.data;
+  const { id, title, price, img, nut } = props.data;
   const { addToCart, cartItems, wishItems, addToWish } =
     useContext(ShopContext);
   const navigate = useNavigate();
@@ -82,6 +82,7 @@ const Product = (props) => {
         <Info>
           <Title>{title}</Title>
           <Price>${price}</Price>
+          <div>Nutri{nut}</div>
         </Info>
       </ProductContainer>
       <ButtonContainer>

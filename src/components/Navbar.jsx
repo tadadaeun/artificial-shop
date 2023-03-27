@@ -105,7 +105,7 @@ const Navbar = () => {
       <Wrapper>
         <Left>
           <Link to="/" style={{ textDecoration: "none" }}>
-            <Logo>ARTIFICIAL SHOP</Logo>
+            <Logo src="'../images/logo1'"></Logo>
           </Link>
         </Left>
         <Center>
