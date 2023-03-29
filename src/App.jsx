@@ -11,9 +11,11 @@ import Home from "./pages/Home";
 import WishList from "./pages/WishList";
 import { ShopContextProvider } from "./context/shop-context";
 import ProductPage from "./pages/ProductPage";
+import IntroPage from "./pages/IntroPage";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
+  { path: "/", element: <IntroPage /> },
+  { path: "/home", element: <Home /> },
   { path: "/product", element: <ProductPage /> },
   { path: "/product/:id", element: <ProductPage /> },
   { path: "/cart", element: <Cart /> },

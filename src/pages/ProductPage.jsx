@@ -8,11 +8,18 @@ import { PRODUCTS } from "../data";
 import { ShopContext } from "../context/shop-context";
 import { useContext } from "react";
 import { mobile } from "../responsive";
+import ProductDescription from "../components/ProductDescription";
 
 const Container = styled.div``;
+
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const Top = styled.div`
   padding: 50px;
   display: flex;
+  height: 75vh;
 `;
 
 const InfoContainer = styled.div`
@@ -71,6 +78,8 @@ const Button = styled.button`
   }
 `;
 
+const Bottom = styled.div``;
+
 const ProductPage = () => {
   const { pathname } = useLocation();
 
@@ -91,32 +100,32 @@ const ProductPage = () => {
       <Announcement />
       <Navbar />
       <Wrapper>
-        <ProductImage detailImages={detailImages} />
-        <InfoContainer>
-          <Title>{title}</Title>
-          <Desc>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab porro
-            autem quod, necessitatibus omnis officia soluta dolor adipisci sequi
-            sed debitis commodi libero dolores totam fugit tempore incidunt,
-            culpa quibusdam.
-          </Desc>
-          <Price>${price}</Price>
-          <AddContainer>
-            <AmountContainer>
-              <Remove onClick={() => removeFromCart(id)} />
-              <ProductAmount
-                value={cartItems[id]}
-                onChange={(e) =>
-                  updateCartItemCount(Number(e.target.value), id)
-                }
-              ></ProductAmount>
-              <Add onClick={() => addToCart(id)} />
-            </AmountContainer>
-            <Button onClick={() => navigate("/cart")}>
-              Check out in my cart
-            </Button>
-          </AddContainer>
-        </InfoContainer>
+        <Top>
+          <ProductImage detailImages={detailImages} />
+          <InfoContainer>
+            <Title>{title}</Title>
+            <Desc></Desc>
+            <Price>${price}</Price>
+            <AddContainer>
+              <AmountContainer>
+                <Remove onClick={() => removeFromCart(id)} />
+                <ProductAmount
+                  value={cartItems[id]}
+                  onChange={(e) =>
+                    updateCartItemCount(Number(e.target.value), id)
+                  }
+                ></ProductAmount>
+                <Add onClick={() => addToCart(id)} />
+              </AmountContainer>
+              <Button onClick={() => navigate("/cart")}>
+                Check out in my cart
+              </Button>
+            </AddContainer>
+          </InfoContainer>
+        </Top>
+        <Bottom>
+          <ProductDescription />
+        </Bottom>
       </Wrapper>
     </Container>
   );

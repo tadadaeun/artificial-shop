@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  height: 30px;
+  height: 25px;
   background-color: #006600;
   color: white;
   display: flex;
@@ -15,7 +15,7 @@ const Container = styled.div`
 const Announcement = () => {
   return (
     <div>
-      <Container>Click here to see more details about this website!</Container>
+      <Container></Container>
     </div>
   );
 };

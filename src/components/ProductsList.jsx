@@ -15,11 +15,12 @@ const FilterContainer = styled.div`
   margin: 80px 60px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-end;
+  align-items: center;
 `;
 
 const Filter = styled.div`
-  align-items: center;
+  margin: 0 30px;
 `;
 
 const FilterTitle = styled.span`
@@ -38,7 +39,7 @@ const ProductsList = () => {
   const location = useLocation();
   const cat = location.pathname.split("/")[0];
   const [filter, setFilter] = useState("all");
-  const [sort, setSort] = useState("lowest");
+  const [sort, setSort] = useState("default");
 
   const refinedData = PRODUCTS.filter(({ category }) => {
     if (filter === "all") return true;
@@ -62,7 +63,7 @@ const ProductsList = () => {
             onChange={(e) => setFilter(e.target.value)}
             defaultValue="all"
           >
-            <FilterOption value="all">all product</FilterOption>
+            <FilterOption value="all">select filter</FilterOption>
             <FilterOption>popular</FilterOption>
             <FilterOption>new</FilterOption>
             <FilterOption>good nutrient</FilterOption>
@@ -73,12 +74,12 @@ const ProductsList = () => {
           <FilterOptions
             name="sort"
             onChange={(e) => setSort(e.target.value)}
-            defaultValue="lowest"
+            defaultValue="default"
           >
+            <FilterOption value="default">select option</FilterOption>
             <FilterOption value="lowest">lowest price</FilterOption>
             <FilterOption value="highest">highest price</FilterOption>
-            <FilterOption value="newest">newest</FilterOption>
-            <FilterOption value="nutrient">nutrient</FilterOption>
+            <FilterOption value="nutrient">nutrient score</FilterOption>
           </FilterOptions>
         </Filter>
       </FilterContainer>

@@ -10,6 +10,7 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { ShopContext } from "../context/shop-context";
+import logo from "../images/logo1.png";
 
 const Container = styled.div`
   height: 70px;
@@ -31,14 +32,14 @@ const Wrapper = styled.div`
 `;
 
 const Left = styled.div`
-  flex: 1;
+  flex: 0.5;
   display: flex;
   align-items: center;
 `;
 
-const Logo = styled.h1`
-  font-weight: 600;
-  color: #006600;
+const Logo = styled.img`
+  width: 35px;
+  margin: 0 30px;
 `;
 
 const Center = styled.div`
@@ -50,7 +51,6 @@ const Center = styled.div`
 
 const Menu = styled.div`
   font-size: 16px;
-  cursor: pointer;
   margin-right: 15px;
   text-decoration: none;
   color: black;
@@ -67,6 +67,7 @@ const SearchContainer = styled.div`
 `;
 
 const Input = styled.input`
+  width: 100%;
   border: none;
   background-color: #f2f2f2;
   color: #595959;
@@ -104,12 +105,17 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Link to="/" style={{ textDecoration: "none" }}>
-            <Logo src="'../images/logo1'"></Logo>
+          <Link
+            to="/home"
+            style={{ textDecoration: "none", cursor: "pointer" }}
+          >
+            <Logo src={logo}></Logo>
           </Link>
         </Left>
         <Center>
-          <Menu>Products</Menu>
+          <Link to="/home" style={{ textDecoration: "none" }}>
+            <Menu>Products</Menu>
+          </Link>
           <Menu>Categories</Menu>
           <Menu>Deal</Menu>
           <Menu>What's New</Menu>
@@ -124,13 +130,6 @@ const Navbar = () => {
           </SearchContainer>
         </Center>
         <Right>
-          <Link to="/WishList">
-            <MenuItem>
-              <Badge badgeContent={totalWishAmount} color="success">
-                <FavoriteBorderOutlined />
-              </Badge>
-            </MenuItem>
-          </Link>
           <Link to="/cart">
             <MenuItem>
               <Badge badgeContent={totalAmount} color="success">

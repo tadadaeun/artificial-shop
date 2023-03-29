@@ -56,8 +56,15 @@ const WhishListContainer = styled.div`
   margin: 30px 0;
 `;
 
+const WhishListTitle = styled.div`
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin: 10px;
+`;
+
 const WhishListItems = styled.div`
   display: flex;
+  flex-wrap: wrap;
   padding: 20px;
 `;
 
@@ -174,8 +181,8 @@ const Cart = () => {
               <h1>Your cart is empty! </h1>
             )}
             <WhishListContainer>
+              <WhishListTitle>Saved for later</WhishListTitle>
               <WhishListItems>
-                <div>Saved for later</div>
                 {PRODUCTS.map((product) => {
                   if (wishItems[product.id] !== 0) {
                     return (

@@ -17,7 +17,9 @@ const Container = styled.div`
   border-right: 1px solid #c5c5c5;
 `;
 
-const ProductContainer = styled.div``;
+const ProductContainer = styled.div`
+  cursor: pointer;
+`;
 
 const Image = styled.img`
   width: 100%;
