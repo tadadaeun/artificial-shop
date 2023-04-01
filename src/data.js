@@ -4,20 +4,28 @@ export const PRODUCTS = [
     title: "Cinnamon Breakfast Cereal",
     price: 2.3,
     category: "popular",
-    nut: "a",
+    nut: "A",
+    nutriScore: 1,
+    des: "This is the description",
     img: "https://target.scene7.com/is/image/Target/GUEST_c0a40985-3c24-4256-b82e-ff2368d2cb7a?wid=1080&hei=1080&fmt=pjpeg",
+    nutriImage: "https://target.scene7.com/is/image/Target/GUEST_1c8601ee-371f-4760-9f75-6b6f54239d43?wid=475&hei=475&qlt=80&fmt=webp",
     detailImages: [
       "https://target.scene7.com/is/image/Target/GUEST_c0a40985-3c24-4256-b82e-ff2368d2cb7a?wid=1080&hei=1080&fmt=pjpeg",
       "https://target.scene7.com/is/image/Target/GUEST_5d57e38b-4513-4964-81fb-c723d71713fb?wid=1323&hei=1323&fmt=pjpeg",
       "https://target.scene7.com/is/image/Target/GUEST_5d57e38b-4513-4964-81fb-c723d71713fb?wid=1323&hei=1323&fmt=pjpeg"
-    ]
+    ],
+    recommendingImage1: "https://target.scene7.com/is/image/Target/GUEST_c0a40985-3c24-4256-b82e-ff2368d2cb7a?wid=1080&hei=1080&fmt=pjpeg",
+    recommendingImage2: "https://target.scene7.com/is/image/Target/GUEST_c0a40985-3c24-4256-b82e-ff2368d2cb7a?wid=1080&hei=1080&fmt=pjpeg",
+    recommendingImage3: "https://target.scene7.com/is/image/Target/GUEST_c0a40985-3c24-4256-b82e-ff2368d2cb7a?wid=1080&hei=1080&fmt=pjpeg",
+    recommendingImage4: "https://target.scene7.com/is/image/Target/GUEST_c0a40985-3c24-4256-b82e-ff2368d2cb7a?wid=1080&hei=1080&fmt=pjpeg",
   },
   {
     id: 2,
     title: "Cinnamon Breakfast Cereal2",
     price: 4.0,
     category: "new",
-    nut: "b",
+    nut: "B",
+    nutriScore: 2,
     img: "https://target.scene7.com/is/image/Target/GUEST_5d57e38b-4513-4964-81fb-c723d71713fb?wid=1323&hei=1323&fmt=pjpeg",
     detailImages: [
       "https://target.scene7.com/is/image/Target/GUEST_5d57e38b-4513-4964-81fb-c723d71713fb?wid=1323&hei=1323&fmt=pjpeg",
@@ -30,7 +38,8 @@ export const PRODUCTS = [
     title: "Cinnamon Breakfast Cereal3",
     price: 4.5,
     category: "nutrient",
-    nut: "c",
+    nut: "C",
+    nutriScore: 3,
     img: "https://target.scene7.com/is/image/Target/GUEST_5be06125-08d8-4f5e-a501-dc85fa48c693?wid=1080&hei=1080&fmt=pjpeg",
     detailImages: [
       "https://target.scene7.com/is/image/Target/GUEST_5be06125-08d8-4f5e-a501-dc85fa48c693?wid=1080&hei=1080&fmt=pjpeg",

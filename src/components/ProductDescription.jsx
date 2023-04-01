@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { PRODUCTS } from "../data";
+
+const Container = styled.div``;
 
 const DescriptionContainer = styled.div`
   width: 90vw;
@@ -64,49 +68,79 @@ const TextContainer = styled.div``;
 
 const TextDescription = styled.div``;
 
-const TextNutrition = styled.div``;
+const TextNutrition = styled.img``;
+
+const RecommendingContainer = styled.div``;
+const ImageContainer = styled.div``;
+const Image = styled.img``;
 
 const ProductDescription = () => {
+  const { pathname } = useLocation();
+
+  const splits = pathname.split("/");
+
+  const prodId = Number(splits[splits.length - 1]);
+
+  const {
+    des,
+    nutriImage,
+    recommendingImage1,
+    recommendingImage2,
+    recommendingImage3,
+    recommendingImage4,
+  } = PRODUCTS[prodId - 1];
+
   const [selected, setSelected] = useState(true);
   const selectHandler = () => {
     setSelected((isSelected) => !isSelected);
   };
 
   return (
-    <DescriptionContainer>
-      <DescriptionOptions>
-        <OptionLeft>
-          <OptionLeftSelected
-            style={{ backgroundColor: selected ? "#9d9d9d" : "#006600" }}
-          ></OptionLeftSelected>
-          <OptionDescription
-            onClick={selectHandler}
-            style={{ backgroundColor: selected ? "#f1f1f1" : "white" }}
-          >
-            Description
-          </OptionDescription>
-        </OptionLeft>
-        <OptionRight>
-          <OptionRightSelected
-            style={{ backgroundColor: selected ? "#006600" : "#9d9d9d" }}
-          ></OptionRightSelected>
-          <OptionNutrition
-            onClick={selectHandler}
-            style={{ backgroundColor: selected ? "white" : "#f1f1f1" }}
-          >
-            Nutrition
-          </OptionNutrition>
-        </OptionRight>
-      </DescriptionOptions>
-      <TextContainer>
-        <TextDescription style={{ display: selected ? "none" : "block" }}>
-          Description
-        </TextDescription>
-        <TextNutrition style={{ display: selected ? "block" : "none" }}>
-          Nutrition
-        </TextNutrition>
-      </TextContainer>
-    </DescriptionContainer>
+    <Container>
+      <DescriptionContainer>
+        <DescriptionOptions>
+          <OptionLeft>
+            <OptionLeftSelected
+              style={{ backgroundColor: selected ? "#9d9d9d" : "#006600" }}
+            ></OptionLeftSelected>
+            <OptionDescription
+              onClick={selectHandler}
+              style={{ backgroundColor: selected ? "#f1f1f1" : "white" }}
+            >
+              Description
+            </OptionDescription>
+          </OptionLeft>
+          <OptionRight>
+            <OptionRightSelected
+              style={{ backgroundColor: selected ? "#006600" : "#9d9d9d" }}
+            ></OptionRightSelected>
+            <OptionNutrition
+              onClick={selectHandler}
+              style={{ backgroundColor: selected ? "white" : "#f1f1f1" }}
+            >
+              Nutrition
+            </OptionNutrition>
+          </OptionRight>
+        </DescriptionOptions>
+        <TextContainer>
+          <TextDescription style={{ display: selected ? "none" : "block" }}>
+            {des}
+          </TextDescription>
+          <TextNutrition
+            src={nutriImage}
+            style={{ display: selected ? "block" : "none" }}
+          ></TextNutrition>
+        </TextContainer>
+      </DescriptionContainer>
+      <RecommendingContainer>
+        <ImageContainer>
+          <Image src={recommendingImage1}></Image>
+          <Image src={recommendingImage2}></Image>
+          <Image src={recommendingImage3}></Image>
+          <Image src={recommendingImage4}></Image>
+        </ImageContainer>
+      </RecommendingContainer>
+    </Container>
   );
 };
 

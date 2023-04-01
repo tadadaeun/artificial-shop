@@ -33,6 +33,11 @@ const Title = styled.div`
   margin: 20px 10px 10px 10px;
 `;
 
+const Nut = styled.div`
+  font-weight: 300;
+  margin: 20px 10px 10px 10px;
+`;
+
 const Price = styled.div`
   color: #232323;
   margin: 10px;
@@ -83,8 +88,8 @@ const Product = (props) => {
         <Image src={img} />
         <Info>
           <Title>{title}</Title>
+          <Nut>Nutri-Score : {nut}</Nut>
           <Price>${price}</Price>
-          <div>Nutri{nut}</div>
         </Info>
       </ProductContainer>
       <ButtonContainer>
