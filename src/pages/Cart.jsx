@@ -38,6 +38,7 @@ const TopText = styled.span`
 `;
 
 const Bottom = styled.div`
+  margin: 20px;
   display: flex;
   justify-content: space-between;
   ${mobile({ flexDirection: "column" })}
@@ -50,15 +51,15 @@ const ProductContainer = styled.div`
 `;
 
 const WhishListContainer = styled.div`
-  width: 100%;
-  border: 1px solid gray;
-  border-radius: 6px;
-  margin: 30px 0;
+  width: 70vw;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  padding: 15px;
 `;
 
 const WhishListTitle = styled.div`
-  font-weight: 500;
-  font-size: 1.3rem;
+  font-weight: 300;
+  font-size: 1.6rem;
   margin: 10px;
 `;
 
@@ -66,6 +67,12 @@ const WhishListItems = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
+`;
+
+const EmptyMessage = styled.div`
+  font-weight: 300;
+  font-size: 2rem;
+  margin: 30px;
 `;
 
 const Info = styled.div`
@@ -90,7 +97,7 @@ const Summary = styled.div`
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 20px;
-  height: 50vh;
+  height: 35vh;
 `;
 
 const SummaryTitle = styled.h1`
@@ -159,9 +166,7 @@ const Cart = () => {
         <Top>
           <TopTexts>
             <TopText>Shopping Bag({totalAmount})</TopText>
-            <TopText onClick={() => navigate("/WishList")}>
-              Your Wishlist ({totalWishAmount})
-            </TopText>
+            <TopText>Your Wishlist ({totalWishAmount})</TopText>
           </TopTexts>
         </Top>
         <Bottom>
@@ -178,7 +183,7 @@ const Cart = () => {
                 <Hr />
               </Info>
             ) : (
-              <h1>Your cart is empty! </h1>
+              <EmptyMessage>Your cart is empty! </EmptyMessage>
             )}
             <WhishListContainer>
               <WhishListTitle>Saved for later</WhishListTitle>
@@ -200,7 +205,7 @@ const Cart = () => {
               <SummaryItemPrice>$ {totalPrice}</SummaryItemPrice>
             </SummaryItem>
             <CheckOutButton>CHECKOUT NOW</CheckOutButton>
-            <ContinueButton onClick={() => navigate("/")}>
+            <ContinueButton onClick={() => navigate("/home")}>
               Continue Shopping
             </ContinueButton>
           </Summary>

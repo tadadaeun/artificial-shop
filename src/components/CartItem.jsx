@@ -30,6 +30,7 @@ const PriceDetail = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 20px 0;
 `;
 
 const ProductAmountContainer = styled.div`
@@ -46,7 +47,19 @@ const ProductAmount = styled.input`
   ${mobile({ margin: "5px 15px" })}
 `;
 
-const SaveButton = styled.button``;
+const SaveButton = styled.button`
+  width: 100%;
+  padding: 10px;
+  margin: 0 20px;
+  background-color: #b1b1b1;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  &:hover {
+    background-color: #006600;
+  }
+`;
 
 const ProductPrice = styled.div`
   font-size: 30px;
@@ -73,6 +86,7 @@ export const CartItem = (props) => {
           <ProductName>
             <b>{title}</b>
           </ProductName>
+          <ProductPrice>$ {price}</ProductPrice>
         </Details>
       </ProductDetail>
       <PriceDetail>
@@ -81,18 +95,17 @@ export const CartItem = (props) => {
             onClick={() => {
               removeCartItem(id);
               addToWish(id);
-            }}>
+            }}
+          >
             Save it for later
           </SaveButton>
           <Remove onClick={() => removeFromCart(id)} />
           <ProductAmount
             value={cartItems[id]}
-            onChange={(e) =>
-              updateCartItemCount(Number(e.target.value), id)
-            }></ProductAmount>
+            onChange={(e) => updateCartItemCount(Number(e.target.value), id)}
+          ></ProductAmount>
           <Add onClick={() => addToCart(id)} />
         </ProductAmountContainer>
-        <ProductPrice>$ {price}</ProductPrice>
       </PriceDetail>
     </ProductContainer>
   );

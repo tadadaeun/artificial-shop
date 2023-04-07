@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 const Top = styled.div`
   padding: 50px;
   display: flex;
-  height: 75vh;
+  height: 70vh;
 `;
 
 const InfoContainer = styled.div`
@@ -64,7 +64,7 @@ const ProductAmount = styled.input`
 `;
 
 const Button = styled.button`
-  width: 300px;
+  min-width: 200px;
   padding: 15px;
   background-color: #006600;
   color: white;

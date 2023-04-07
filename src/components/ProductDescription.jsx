@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { PRODUCTS } from "../data";
 
 const Container = styled.div``;
 
 const DescriptionContainer = styled.div`
-  width: 90vw;
+  width: 80vw;
   height: 500px;
-  border: 1px solid gray;
+  border: 0.5px solid lightgray;
   border-radius: 10px;
   margin: 0 50px;
 `;
@@ -70,9 +70,29 @@ const TextDescription = styled.div``;
 
 const TextNutrition = styled.img``;
 
-const RecommendingContainer = styled.div``;
-const ImageContainer = styled.div``;
-const Image = styled.img``;
+const RecommendingContainer = styled.div`
+  width: 80vw;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  margin: 30px 50px;
+  padding: 20px;
+`;
+
+const RecommendingText = styled.div`
+  font-weight: 300;
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Image = styled.img`
+  width: 250px;
+`;
 
 const ProductDescription = () => {
   const { pathname } = useLocation();
@@ -94,6 +114,8 @@ const ProductDescription = () => {
   const selectHandler = () => {
     setSelected((isSelected) => !isSelected);
   };
+
+  const navigate = useNavigate();
 
   return (
     <Container>
@@ -133,8 +155,12 @@ const ProductDescription = () => {
         </TextContainer>
       </DescriptionContainer>
       <RecommendingContainer>
+        <RecommendingText>Recommendations for you</RecommendingText>
         <ImageContainer>
-          <Image src={recommendingImage1}></Image>
+          <Image
+            src={recommendingImage1}
+            onClick={() => navigate("/product/2")}
+          ></Image>
           <Image src={recommendingImage2}></Image>
           <Image src={recommendingImage3}></Image>
           <Image src={recommendingImage4}></Image>

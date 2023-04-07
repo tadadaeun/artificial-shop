@@ -63,7 +63,7 @@ const ProductsList = () => {
             onChange={(e) => setFilter(e.target.value)}
             defaultValue="all"
           >
-            <FilterOption value="all">select filter</FilterOption>
+            <FilterOption value="all">all products</FilterOption>
             <FilterOption>popular</FilterOption>
             <FilterOption>new</FilterOption>
             <FilterOption>good nutrient</FilterOption>

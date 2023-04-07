@@ -8,12 +8,6 @@ const ImgContainer = styled.div`
   display: flex;
 `;
 
-const Image = styled.div`
-  width: 90%;
-  height: 70vh;
-  object-fit: contain;
-`;
-
 const ImgPreContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -24,6 +18,14 @@ const ImgPre = styled.img`
   border: 1px solid gray;
   margin: 5px;
   cursor: pointer;
+`;
+
+const Image = styled.div`
+  width: 70%;
+  max-width: 450px;
+  min-width: 300px;
+  height: auto;
+  object-fit: contain;
 `;
 
 const ProductImage = ({ detailImages = [] }) => {

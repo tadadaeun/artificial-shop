@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
 
-import {
-  Search,
-  ShoppingCartOutlined,
-  FavoriteBorderOutlined,
-} from "@material-ui/icons";
+import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import Badge from "@mui/material/Badge";
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
@@ -13,7 +9,7 @@ import { ShopContext } from "../context/shop-context";
 import logo from "../images/logo1.png";
 
 const Container = styled.div`
-  height: 70px;
+  height: 65px;
   width: 100vw;
   top: 0px;
   position: sticky;
@@ -32,14 +28,14 @@ const Wrapper = styled.div`
 `;
 
 const Left = styled.div`
-  flex: 0.5;
+  flex: 0.3;
   display: flex;
   align-items: center;
 `;
 
 const Logo = styled.img`
-  width: 35px;
-  margin: 0 30px;
+  width: 30px;
+  margin: 0 20px;
 `;
 
 const Center = styled.div`
@@ -81,7 +77,7 @@ const Right = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-right: 30px;
+  margin-right: 20px;
 `;
 
 const MenuItem = styled.div`
@@ -91,9 +87,8 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
-  const { getTotalCartAmount, getTotalWishAmount } = useContext(ShopContext);
+  const { getTotalCartAmount } = useContext(ShopContext);
   const totalAmount = getTotalCartAmount();
-  const totalWishAmount = getTotalWishAmount();
 
   const [query, setQuery] = useState();
 
@@ -133,7 +128,7 @@ const Navbar = () => {
           <Link to="/cart">
             <MenuItem>
               <Badge badgeContent={totalAmount} color="success">
-                <ShoppingCartOutlined />
+                <ShoppingCartOutlined style={{ fill: "black" }} />
               </Badge>
             </MenuItem>
           </Link>
