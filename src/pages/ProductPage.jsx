@@ -31,8 +31,8 @@ const Title = styled.h1`
   font-weight: 300;
 `;
 
-const Desc = styled.p`
-  margin: 20px 0;
+const Nutri = styled.div`
+  width: 50px;
 `;
 
 const Price = styled.span`
@@ -87,7 +87,7 @@ const ProductPage = () => {
 
   const prodId = Number(splits[splits.length - 1]);
 
-  const { id, title, price, detailImages } = PRODUCTS[prodId - 1];
+  const { id, title, price, detailImages, nut } = PRODUCTS[prodId - 1];
 
   const { addToCart, cartItems, removeFromCart, updateCartItemCount } =
     useContext(ShopContext);
@@ -104,7 +104,7 @@ const ProductPage = () => {
           <ProductImage detailImages={detailImages} />
           <InfoContainer>
             <Title>{title}</Title>
-            <Desc></Desc>
+            <Nutri>{nut}</Nutri>
             <Price>${price}</Price>
             <AddContainer>
               <AmountContainer>

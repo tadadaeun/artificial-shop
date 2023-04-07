@@ -12,8 +12,9 @@ const Container = styled.div`
 
 const Text = styled.div`
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 300;
+  width: 60vw;
 `;
 
 const Button = styled.button`
@@ -29,7 +30,19 @@ const Button = styled.button`
 const IntroPage = () => {
   return (
     <Container>
-      <Text>This shopping website is for the survey</Text>
+      <Text>
+        Welcome to our hypothetical grocery shopping task! We are conducting a
+        study to understand how consumers shop for groceries online, and we
+        would love for you to participate. In this task, we want you to choose
+        the cold breakfast cereal that you are most interested in purchasing. We
+        have designed the online grocery shopping webpage to simulate a
+        real-life shopping experience as closely as possible, so please feel
+        free to explore all of its features! You can add items to your wish list
+        and view products in detail to make the most informed decision. Once you
+        have found the cold breakfast cereal that you want to purchase the most,
+        please add the item to your cart and check out. We want you to enjoy the
+        experience and have fun while helping us with our research.
+      </Text>
       <Link to="/home">
         <Button>Go to shop</Button>
       </Link>

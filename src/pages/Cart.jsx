@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Navbar from "../components/Navbar";
@@ -55,6 +55,7 @@ const WhishListContainer = styled.div`
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 15px;
+  margin-top: 20px;
 `;
 
 const WhishListTitle = styled.div`
@@ -143,6 +144,26 @@ const ContinueButton = styled.button`
   }
 `;
 
+const AlertContainer = styled.div`
+  position: fixed;
+  left: 25vw;
+  top: 30%;
+  width: 650px;
+  height: 350px;
+  background-color: #b3b1b1ab;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const AlertText = styled.div`
+  width: 80%;
+`;
+
+const AlertButton = styled.button``;
+
 const Cart = () => {
   const {
     wishItems,
@@ -156,6 +177,12 @@ const Cart = () => {
   const totalWishAmount = getTotalWishAmount();
 
   const navigate = useNavigate();
+
+  const [alert, SetAlert] = useState(false);
+
+  const alertHandler = () => {
+    SetAlert((alert) => !alert);
+  };
 
   return (
     <Container>
@@ -180,7 +207,6 @@ const Cart = () => {
                     }
                   })}
                 </Product>
-                <Hr />
               </Info>
             ) : (
               <EmptyMessage>Your cart is empty! </EmptyMessage>
@@ -204,13 +230,21 @@ const Cart = () => {
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ {totalPrice}</SummaryItemPrice>
             </SummaryItem>
-            <CheckOutButton>CHECKOUT NOW</CheckOutButton>
+            <CheckOutButton onClick={alertHandler}>CHECKOUT NOW</CheckOutButton>
             <ContinueButton onClick={() => navigate("/home")}>
               Continue Shopping
             </ContinueButton>
           </Summary>
         </Bottom>
       </Wrapper>
+      <AlertContainer style={{ visibility: alert ? "visible" : "hidden" }}>
+        <AlertText>
+          Please ensure that you have only put one item in your cart. If you
+          have added more than one item, kindly remove the extra items and keep
+          only one.
+        </AlertText>
+        <AlertButton onClick={alertHandler}>Go back to cart</AlertButton>
+      </AlertContainer>
     </Container>
   );
 };
