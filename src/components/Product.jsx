@@ -1,5 +1,5 @@
-import { FavoriteBorderOutlined } from "@material-ui/icons";
-import { useContext } from "react";
+import { Favorite, FavoriteBorderOutlined } from "@material-ui/icons";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ShopContext } from "../context/shop-context";
@@ -82,7 +82,7 @@ const Product = (props) => {
   const { addToCart, cartItems, wishItems, addToWish } =
     useContext(ShopContext);
   const navigate = useNavigate();
-
+  const selected = wishItems[id];
   const cartItemAmount = cartItems[id];
   return (
     <Container>
@@ -96,7 +96,11 @@ const Product = (props) => {
       </ProductContainer>
       <ButtonContainer>
         <Icon>
-          <FavoriteBorderOutlined onClick={() => addToWish(id)} />
+          {selected > 0 ? (
+            <Favorite />
+          ) : (
+            <FavoriteBorderOutlined onClick={() => addToWish(id)} />
+          )}
         </Icon>
         <Button onClick={() => addToCart(id)}>
           Add to cart {cartItemAmount > 0 && <> ({cartItemAmount}) </>}
