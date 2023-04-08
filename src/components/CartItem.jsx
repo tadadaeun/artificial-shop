@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 import { Add, Remove } from "@material-ui/icons";
 import { ShopContext } from "../context/shop-context";
+import ReactGA from "react-ga4";
 
 const ProductContainer = styled.div`
   border-bottom: 0.5px solid lightgray;
@@ -98,6 +99,42 @@ export const CartItem = (props) => {
     addToWish,
   } = useContext(ShopContext);
 
+  const handleDeleteEvent = () => {
+    ReactGA.event({
+      category: "Cart",
+      action: "remove_from_cart",
+      label: `Removed Product ${title} from Cart`,
+      value: id,
+    });
+  };
+
+  const handleDecreaseEvent = () => {
+    ReactGA.event({
+      category: "Cart",
+      action: "decrease product quantities in the cart",
+      label: `Clicked the Decrease quantity button for Product ${title} in Cart`,
+      value: id,
+    });
+  };
+
+  const handleIncreaseEvent = () => {
+    ReactGA.event({
+      category: "Cart",
+      action: "increase product quantities in the cart",
+      label: `Clicked the Increase quantity button for Product ${title} in Cart`,
+      value: id,
+    });
+  };
+
+  const handleSaveToWishlistEvent = () => {
+    ReactGA.event({
+      category: "Wishlist",
+      action: "save it for later button click",
+      label: `Clicked save it for later button for Product ${title}`,
+      value: id,
+    });
+  };
+
   return (
     <ProductContainer>
       <ProductDetail>
@@ -112,25 +149,36 @@ export const CartItem = (props) => {
       </ProductDetail>
       <PriceDetail>
         <ProductAmountContainer>
-          <Remove onClick={() => removeFromCart(id)} />
+          <Remove
+            onClick={() => {
+              handleDecreaseEvent();
+              removeFromCart(id);
+            }}
+          />
           <ProductAmount
             value={cartItems[id]}
-            onChange={(e) => updateCartItemCount(Number(e.target.value), id)}
-          ></ProductAmount>
-          <Add onClick={() => addToCart(id)} />
+            onChange={(e) =>
+              updateCartItemCount(Number(e.target.value), id)
+            }></ProductAmount>
+          <Add
+            onClick={() => {
+              handleIncreaseEvent();
+              addToCart(id);
+            }}
+          />
           <SaveButton
             onClick={() => {
+              handleSaveToWishlistEvent();
               removeCartItem(id);
               addToWish(id);
-            }}
-          >
+            }}>
             Save it for later
           </SaveButton>
           <DeleteButton
             onClick={() => {
+              handleDeleteEvent();
               removeCartItem(id);
-            }}
-          >
+            }}>
             Delete from cart
           </DeleteButton>
         </ProductAmountContainer>
