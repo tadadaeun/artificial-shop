@@ -140,7 +140,8 @@ const ProductPage = () => {
                 onClick={() => {
                   onCheckoutClick();
                   navigate("/cart");
-                }}>
+                }}
+                disabled={!cartItemAmount}>
                 Check out in my cart
               </Button>
             </AddContainer>
