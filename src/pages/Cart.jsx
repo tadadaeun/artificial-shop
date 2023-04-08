@@ -192,7 +192,11 @@ const Cart = () => {
   };
 
   const alertHandler = () => {
-    SetAlert((alert) => !alert);
+    if (getTotalCartAmount() === 1) {
+      // finish
+    } else {
+      SetAlert((alert) => !alert);
+    }
   };
 
   return (

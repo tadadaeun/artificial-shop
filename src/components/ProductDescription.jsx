@@ -95,6 +95,11 @@ const Image = styled.img`
   width: 250px;
 `;
 
+const options = {
+  DESCRIPTION: "description",
+  NUTRITION: "nutrition",
+};
+
 const ProductDescription = () => {
   const { pathname } = useLocation();
 
@@ -111,7 +116,17 @@ const ProductDescription = () => {
     recommendingImage4,
   } = PRODUCTS[prodId - 1];
 
-  const [selected, setSelected] = useState(true);
+  const [selected, setSelected] = useState(options.DESCRIPTION);
+
+  const descriptionSelected = React.useMemo(
+    () => selected === options.DESCRIPTION,
+    [selected]
+  );
+
+  const nutritionSelected = React.useMemo(
+    () => selected === options.NUTRITION,
+    [selected]
+  );
 
   const onDescriptionClick = () => {
     ReactGA.event({
@@ -149,8 +164,8 @@ const ProductDescription = () => {
     });
   };
 
-  const selectHandler = () => {
-    setSelected((isSelected) => !isSelected);
+  const selectHandler = (value) => {
+    setSelected(value);
   };
 
   const navigate = useNavigate();
@@ -161,27 +176,33 @@ const ProductDescription = () => {
         <DescriptionOptions>
           <OptionLeft>
             <OptionLeftSelected
-              style={{ backgroundColor: selected ? "#9d9d9d" : "#006600" }}
-            ></OptionLeftSelected>
+              style={{
+                backgroundColor: descriptionSelected ? "#006600" : "#9d9d9d",
+              }}></OptionLeftSelected>
             <OptionDescription
               onClick={() => {
                 onDescriptionClick();
-                selectHandler();
+                selectHandler(options.DESCRIPTION);
               }}
-              style={{ backgroundColor: selected ? "#f1f1f1" : "white" }}>
+              style={{
+                backgroundColor: descriptionSelected ? "white" : "#f1f1f1",
+              }}>
               Description
             </OptionDescription>
           </OptionLeft>
           <OptionRight>
             <OptionRightSelected
-              style={{ backgroundColor: selected ? "#006600" : "#9d9d9d" }}
-            ></OptionRightSelected>
+              style={{
+                backgroundColor: nutritionSelected ? "#006600" : "#9d9d9d",
+              }}></OptionRightSelected>
             <OptionNutrition
               onClick={() => {
                 onNutritionClick();
-                selectHandler();
+                selectHandler(options.NUTRITION);
               }}
-              style={{ backgroundColor: selected ? "white" : "#f1f1f1" }}>
+              style={{
+                backgroundColor: nutritionSelected ? "white" : "#f1f1f1",
+              }}>
               Nutrition
             </OptionNutrition>
           </OptionRight>
@@ -189,13 +210,15 @@ const ProductDescription = () => {
         <TextContainer>
           <TextDescription
             onMouseOver={onDescriptionHover}
-            style={{ display: selected ? "none" : "block" }}>
+            style={{ display: descriptionSelected ? "block" : "none" }}>
             {des}
           </TextDescription>
           <TextNutrition
             src={nutriImage}
             onMouseOver={onNutritionHover}
-            style={{ display: selected ? "block" : "none" }}></TextNutrition>
+            style={{
+              display: nutritionSelected ? "block" : "none",
+            }}></TextNutrition>
         </TextContainer>
       </DescriptionContainer>
       <RecommendingContainer>
@@ -203,8 +226,7 @@ const ProductDescription = () => {
         <ImageContainer>
           <Image
             src={recommendingImage1}
-            onClick={() => navigate("/product/2")}
-          ></Image>
+            onClick={() => navigate("/product/2")}></Image>
           <Image src={recommendingImage2}></Image>
           <Image src={recommendingImage3}></Image>
           <Image src={recommendingImage4}></Image>
