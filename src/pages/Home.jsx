@@ -8,6 +8,8 @@ import Footer from "../components/Footer";
 const Container = styled.div``;
 
 const Home = () => {
+  const userId = sessionStorage.getItem("userId");
+
   return (
     <Container>
       <Announcement />
