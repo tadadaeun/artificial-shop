@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { PRODUCTS } from "../data";
+import ReactGA from "react-ga4";
 
 const Container = styled.div``;
 
@@ -111,6 +112,43 @@ const ProductDescription = () => {
   } = PRODUCTS[prodId - 1];
 
   const [selected, setSelected] = useState(true);
+
+  const onDescriptionClick = () => {
+    ReactGA.event({
+      category: "Product",
+      action: "description_click",
+      label: `Clicked Description of Product ${prodId}`,
+      value: prodId,
+    });
+  };
+
+  const onDescriptionHover = () => {
+    ReactGA.event({
+      category: "Product",
+      action: "description_hover",
+      label: `Hovered Description of Product ${prodId}`,
+      value: prodId,
+    });
+  };
+
+  const onNutritionClick = () => {
+    ReactGA.event({
+      category: "Product",
+      action: "nutrition_info_click",
+      label: `Clicked Nutrition information of Product ${prodId}`,
+      value: prodId,
+    });
+  };
+
+  const onNutritionHover = () => {
+    ReactGA.event({
+      category: "Product",
+      action: "nutrition_info_hover",
+      label: `Hovered Nutrition information of Product ${prodId}`,
+      value: prodId,
+    });
+  };
+
   const selectHandler = () => {
     setSelected((isSelected) => !isSelected);
   };
@@ -126,9 +164,11 @@ const ProductDescription = () => {
               style={{ backgroundColor: selected ? "#9d9d9d" : "#006600" }}
             ></OptionLeftSelected>
             <OptionDescription
-              onClick={selectHandler}
-              style={{ backgroundColor: selected ? "#f1f1f1" : "white" }}
-            >
+              onClick={() => {
+                onDescriptionClick();
+                selectHandler();
+              }}
+              style={{ backgroundColor: selected ? "#f1f1f1" : "white" }}>
               Description
             </OptionDescription>
           </OptionLeft>
@@ -137,21 +177,25 @@ const ProductDescription = () => {
               style={{ backgroundColor: selected ? "#006600" : "#9d9d9d" }}
             ></OptionRightSelected>
             <OptionNutrition
-              onClick={selectHandler}
-              style={{ backgroundColor: selected ? "white" : "#f1f1f1" }}
-            >
+              onClick={() => {
+                onNutritionClick();
+                selectHandler();
+              }}
+              style={{ backgroundColor: selected ? "white" : "#f1f1f1" }}>
               Nutrition
             </OptionNutrition>
           </OptionRight>
         </DescriptionOptions>
         <TextContainer>
-          <TextDescription style={{ display: selected ? "none" : "block" }}>
+          <TextDescription
+            onMouseOver={onDescriptionHover}
+            style={{ display: selected ? "none" : "block" }}>
             {des}
           </TextDescription>
           <TextNutrition
             src={nutriImage}
-            style={{ display: selected ? "block" : "none" }}
-          ></TextNutrition>
+            onMouseOver={onNutritionHover}
+            style={{ display: selected ? "block" : "none" }}></TextNutrition>
         </TextContainer>
       </DescriptionContainer>
       <RecommendingContainer>

@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ShopContext } from "../context/shop-context";
+import ReactGA from "react-ga4";
 
 const Container = styled.div`
   flex: 1;
@@ -86,7 +87,24 @@ const Product = (props) => {
   const cartItemAmount = cartItems[id];
   return (
     <Container>
-      <ProductContainer onClick={() => navigate("/product/" + id)}>
+      <ProductContainer
+        onClick={() => {
+          navigate("/product/" + id);
+          ReactGA.event({
+            category: "Product",
+            action: "product_click",
+            label: `Clicked on Product ${title}`,
+            value: id,
+          });
+        }}
+        onMouseOver={() => {
+          ReactGA.event({
+            category: "Product",
+            action: "product_hover",
+            label: `Hovered on Product ${title}`,
+            value: id,
+          });
+        }}>
         <Image src={img} />
         <Info>
           <Title>{title}</Title>
@@ -102,7 +120,17 @@ const Product = (props) => {
             <FavoriteBorderOutlined onClick={() => addToWish(id)} />
           )}
         </Icon>
-        <Button onClick={() => addToCart(id)}>
+        <Button
+          onClick={() => {
+            ReactGA.event({
+              category: "Product",
+              action: "add_cart_button_click",
+              label: `Added Product ${title} to cart`,
+              value: id,
+            });
+
+            addToCart(id);
+          }}>
           Add to cart {cartItemAmount > 0 && <> ({cartItemAmount}) </>}
         </Button>
       </ButtonContainer>

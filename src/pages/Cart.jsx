@@ -8,6 +8,7 @@ import { CartItem } from "../components/CartItem";
 import { ShopContext } from "../context/shop-context";
 import { useNavigate } from "react-router-dom";
 import WishListSuggestion from "../components/WishListSuggestion";
+import ReactGA from "react-ga4";
 
 const Container = styled.div``;
 
@@ -179,6 +180,16 @@ const Cart = () => {
   const navigate = useNavigate();
 
   const [alert, SetAlert] = useState(false);
+
+  // TODO: Add Selected Product Item id
+  const handleCheckoutEvent = () => {
+    // ReactGA.event({
+    //   category: "Cart",
+    //   action: "checkout button click",
+    //   label: `Clicked Checkout button`,
+    //   value: id,
+    // });
+  };
 
   const alertHandler = () => {
     SetAlert((alert) => !alert);

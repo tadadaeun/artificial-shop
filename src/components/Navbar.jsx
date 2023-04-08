@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 import { ShopContext } from "../context/shop-context";
 import logo from "../images/logo1.png";
+import ReactGA from "react-ga4";
 
 const Container = styled.div`
   height: 65px;
@@ -86,7 +87,7 @@ const MenuItem = styled.div`
   margin-left: 25px;
 `;
 
-const Navbar = () => {
+const Navbar = ({ id }) => {
   const { getTotalCartAmount } = useContext(ShopContext);
   const totalAmount = getTotalCartAmount();
 
@@ -94,6 +95,17 @@ const Navbar = () => {
 
   const search = (data) => {
     return data.filter((item) => item.title.toLowerCase().includes(query));
+  };
+
+  const onBadgeIconClick = () => {
+    if (id) {
+      ReactGA.event({
+        category: "Product",
+        action: "go_to_cart_click",
+        label: `Clicked Go to cart button on the Product ${id} detail page`,
+        value: id,
+      });
+    }
   };
 
   return (
@@ -125,7 +137,7 @@ const Navbar = () => {
           </SearchContainer>
         </Center>
         <Right>
-          <Link to="/cart">
+          <Link to="/cart" onClick={onBadgeIconClick}>
             <MenuItem>
               <Badge badgeContent={totalAmount} color="success">
                 <ShoppingCartOutlined style={{ fill: "black" }} />
