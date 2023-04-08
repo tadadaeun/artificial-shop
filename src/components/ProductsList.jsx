@@ -56,7 +56,7 @@ const ProductsList = () => {
   return (
     <Container>
       <FilterContainer>
-        <Filter>
+        {/*<Filter>
           <FilterTitle>Filtered by :</FilterTitle>
           <FilterOptions
             name="filter"
@@ -68,7 +68,7 @@ const ProductsList = () => {
             <FilterOption>new</FilterOption>
             <FilterOption>good nutrient</FilterOption>
           </FilterOptions>
-        </Filter>
+  </Filter>*/}
         <Filter>
           <FilterTitle>Sort by :</FilterTitle>
           <FilterOptions

@@ -22,7 +22,9 @@ const ProductContainer = styled.div`
 `;
 
 const Image = styled.img`
+  max-height: 300px;
   width: 100%;
+  object-fit: contain;
   z-index: 2;
 `;
 
