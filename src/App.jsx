@@ -2,7 +2,10 @@ import {
   createBrowserRouter,
   //createRoutesFromElements,
   RouterProvider,
-  //Route
+  Routes,
+  Route,
+  Link,
+  BrowserRouter,
 } from "react-router-dom";
 
 import React from "react";
@@ -13,6 +16,8 @@ import { ShopContextProvider } from "./context/shop-context";
 import ProductPage from "./pages/ProductPage";
 import IntroPage from "./pages/IntroPage";
 
+import GoogleAnalytics from "./components/GoogleAnalytics";
+
 const router = createBrowserRouter([
   { path: "/", element: <IntroPage /> },
   { path: "/home", element: <Home /> },
@@ -22,10 +27,21 @@ const router = createBrowserRouter([
   { path: "/wishlist", element: <WishList /> },
 ]);
 
-function App() {
+function App({ Component, pageProps }) {
   return (
     <ShopContextProvider>
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <GoogleAnalytics>
+          <Routes>
+            <Route path='/' element={<IntroPage />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/product' element={<ProductPage />} />
+            <Route path='/product/:id' element={<ProductPage />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/wishlist' element={<WishList />} />
+          </Routes>
+        </GoogleAnalytics>
+      </BrowserRouter>
     </ShopContextProvider>
   );
 }
