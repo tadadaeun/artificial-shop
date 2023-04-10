@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import ReactGA from "react-ga4";
 
 const Container = styled.div`
   display: flex;
@@ -37,6 +38,13 @@ const IntroPage = () => {
   function handleSubmit(event) {
     event.preventDefault();
     sessionStorage.setItem("userId", userId);
+
+    //initialize GA
+    ReactGA.initialize("G-QKXHQVG6ZJ", {
+      gaOptions: {
+        userId: userId,
+      },
+    });
   }
 
   return (
