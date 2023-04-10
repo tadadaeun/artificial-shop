@@ -7,7 +7,6 @@ const GoogleAnalytics = ({ children }) => {
   const location = useLocation();
 
   React.useEffect(() => {
-    //TODO: 타이밍 트래킹
     (function () {
       var startTime = new Date().getTime();
       var lastSentTime = startTime;
