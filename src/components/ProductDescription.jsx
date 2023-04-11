@@ -8,7 +8,7 @@ const Container = styled.div``;
 
 const DescriptionContainer = styled.div`
   width: 80vw;
-  height: 500px;
+  height: auto;
   border: 0.5px solid lightgray;
   border-radius: 10px;
   margin: 0 50px;
@@ -65,11 +65,28 @@ const OptionNutrition = styled.div`
   }
 `;
 
-const TextContainer = styled.div``;
+const TextContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
-const TextDescription = styled.div``;
+const TextDescription = styled.div`
+  margin: 50px 0;
+  width: 75%;
+  text-align: left;
+`;
 
-const TextNutrition = styled.img``;
+const TextNutrition = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const NutriImage = styled.img`
+  max-height: 600px;
+  margin: 50px 0;
+`;
 
 const RecommendingContainer = styled.div`
   width: 80vw;
@@ -178,7 +195,8 @@ const ProductDescription = () => {
             <OptionLeftSelected
               style={{
                 backgroundColor: descriptionSelected ? "#006600" : "#9d9d9d",
-              }}></OptionLeftSelected>
+              }}
+            ></OptionLeftSelected>
             <OptionDescription
               onClick={() => {
                 onDescriptionClick();
@@ -186,7 +204,8 @@ const ProductDescription = () => {
               }}
               style={{
                 backgroundColor: descriptionSelected ? "white" : "#f1f1f1",
-              }}>
+              }}
+            >
               Description
             </OptionDescription>
           </OptionLeft>
@@ -194,7 +213,8 @@ const ProductDescription = () => {
             <OptionRightSelected
               style={{
                 backgroundColor: nutritionSelected ? "#006600" : "#9d9d9d",
-              }}></OptionRightSelected>
+              }}
+            ></OptionRightSelected>
             <OptionNutrition
               onClick={() => {
                 onNutritionClick();
@@ -202,7 +222,8 @@ const ProductDescription = () => {
               }}
               style={{
                 backgroundColor: nutritionSelected ? "white" : "#f1f1f1",
-              }}>
+              }}
+            >
               Nutrition
             </OptionNutrition>
           </OptionRight>
@@ -210,15 +231,18 @@ const ProductDescription = () => {
         <TextContainer>
           <TextDescription
             onMouseOver={onDescriptionHover}
-            style={{ display: descriptionSelected ? "block" : "none" }}>
+            style={{ display: descriptionSelected ? "block" : "none" }}
+          >
             {des}
           </TextDescription>
           <TextNutrition
-            src={nutriImage}
             onMouseOver={onNutritionHover}
             style={{
               display: nutritionSelected ? "block" : "none",
-            }}></TextNutrition>
+            }}
+          >
+            <NutriImage src={nutriImage}></NutriImage>
+          </TextNutrition>
         </TextContainer>
       </DescriptionContainer>
       <RecommendingContainer>
@@ -226,7 +250,8 @@ const ProductDescription = () => {
         <ImageContainer>
           <Image
             src={recommendingImage1}
-            onClick={() => navigate("/product/2")}></Image>
+            onClick={() => navigate("/product/2")}
+          ></Image>
           <Image src={recommendingImage2}></Image>
           <Image src={recommendingImage3}></Image>
           <Image src={recommendingImage4}></Image>
