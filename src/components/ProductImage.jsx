@@ -28,7 +28,7 @@ const Image = styled.div`
   object-fit: contain;
 `;
 
-const ProductImage = ({ detailImages = [] }) => {
+const ProductImage = ({ detailImages = [], onClick }) => {
   const [selectedIdx, setSelectedIdx] = useState(0);
 
   return (
@@ -36,9 +36,11 @@ const ProductImage = ({ detailImages = [] }) => {
       <ImgPreContainer>
         {detailImages.map((detailImg, index) => (
           <ImgPre
-            onClick={() => setSelectedIdx(index)}
-            src={detailImg}
-          ></ImgPre>
+            onClick={() => {
+              onClick(index);
+              setSelectedIdx(index);
+            }}
+            src={detailImg}></ImgPre>
         ))}
       </ImgPreContainer>
       <Image>

@@ -9,6 +9,7 @@ import { ShopContext } from "../context/shop-context";
 import { useContext } from "react";
 import { mobile } from "../responsive";
 import ProductDescription from "../components/ProductDescription";
+import ReactGA from "react-ga4";
 
 const Container = styled.div``;
 
@@ -95,13 +96,31 @@ const ProductPage = () => {
 
   const navigate = useNavigate();
 
+  const onImageClick = () => {
+    ReactGA.event({
+      category: "Product",
+      action: "product_image_click",
+      label: `Clicked another image of the Product`,
+      value: id,
+    });
+  };
+
+  const onCheckoutClick = () => {
+    ReactGA.event({
+      category: "Product",
+      action: "product_checkout_click",
+      label: `Clicked Checkout button on the Product ${id} detail page`,
+      value: id,
+    });
+  };
+
   return (
     <Container>
       <Announcement />
-      <Navbar />
+      <Navbar id={id} />
       <Wrapper>
         <Top>
-          <ProductImage detailImages={detailImages} />
+          <ProductImage detailImages={detailImages} onClick={onImageClick} />
           <InfoContainer>
             <Title>{title}</Title>
             <Nutri>{nut}</Nutri>
@@ -117,7 +136,12 @@ const ProductPage = () => {
                 ></ProductAmount>
                 <Add onClick={() => addToCart(id)} />
               </AmountContainer>
-              <Button onClick={() => navigate("/cart")}>
+              <Button
+                onClick={() => {
+                  onCheckoutClick();
+                  navigate("/cart");
+                }}
+                disabled={!cartItemAmount}>
                 Check out in my cart
               </Button>
             </AddContainer>

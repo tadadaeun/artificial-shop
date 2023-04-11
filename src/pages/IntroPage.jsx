@@ -28,6 +28,17 @@ const Button = styled.button`
 `;
 
 const IntroPage = () => {
+  const [userId, setUserId] = React.useState("");
+
+  function handleUserIdChange(event) {
+    setUserId(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    sessionStorage.setItem("userId", userId);
+  }
+
   return (
     <Container>
       <Text>
@@ -43,7 +54,21 @@ const IntroPage = () => {
         please add the item to your cart and check out. We want you to enjoy the
         experience and have fun while helping us with our research.
       </Text>
-      <Link to="/home">
+
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor='user-id'>User ID:</label>
+          <input
+            type='text'
+            id='user-id'
+            value={userId}
+            onChange={handleUserIdChange}
+          />
+        </div>
+        <button type='submit'>Submit</button>
+      </form>
+
+      <Link to='/home'>
         <Button>Go to shop</Button>
       </Link>
     </Container>
