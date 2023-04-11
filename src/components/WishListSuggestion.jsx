@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import { Add, Remove } from "@material-ui/icons";
+import { Add, DeleteOutline, Remove } from "@material-ui/icons";
 import { ShopContext } from "../context/shop-context";
 
 const ProductContainer = styled.div``;
@@ -27,9 +27,15 @@ const Details = styled.div`
 
 const ProductName = styled.span``;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Button = styled.button`
   max-width: 130px;
-  margin-bottom: 40px;
+  margin: 0 20px;
   padding: 10px;
   background-color: #006600;
   font-size: 13px;
@@ -44,9 +50,11 @@ const Button = styled.button`
   }
 `;
 
+const RemoveButton = styled.button``;
+
 export const WishItem = (props) => {
   const { id, title, price, img } = props.data;
-  const { addToCart, cartItems } = useContext(ShopContext);
+  const { addToCart, cartItems, removeFromWish } = useContext(ShopContext);
   const cartItemAmount = cartItems[id];
 
   return (
@@ -54,11 +62,12 @@ export const WishItem = (props) => {
       <ProductDetail>
         <Image src={img} />
         <Details>
-          <ProductName>
-            <b>{title}</b>
-          </ProductName>
+          <ProductName>{title}</ProductName>
         </Details>
-        <Button onClick={() => addToCart(id)}>Add to cart</Button>
+        <ButtonContainer>
+          <Button onClick={() => addToCart(id)}>Add to cart</Button>
+          <DeleteOutline onClick={() => removeFromWish(id)}></DeleteOutline>
+        </ButtonContainer>
       </ProductDetail>
     </ProductContainer>
   );
