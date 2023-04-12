@@ -4,6 +4,7 @@ import { mobile } from "../responsive";
 import { Add, Remove } from "@material-ui/icons";
 import { ShopContext } from "../context/shop-context";
 import ReactGA from "react-ga4";
+import { useNavigate } from "react-router-dom";
 
 const ProductContainer = styled.div`
   border-bottom: 0.5px solid lightgray;
@@ -80,7 +81,9 @@ const DeleteButton = styled.button`
   }
 `;
 
-const ProductNut = styled.div``;
+const ProductNut = styled.img`
+  width: 100px;
+`;
 
 const ProductPrice = styled.div`
   font-size: 30px;
@@ -135,15 +138,25 @@ export const CartItem = (props) => {
     });
   };
 
+  const navigate = useNavigate();
   return (
     <ProductContainer>
       <ProductDetail>
-        <Image src={img} />
+        <Image
+          src={img}
+          onClick={() => {
+            navigate("/product/" + id);
+          }}
+        />
         <Details>
-          <ProductName>
-            <b>{title}</b>
+          <ProductName
+            onClick={() => {
+              navigate("/product/" + id);
+            }}
+          >
+            {title}
           </ProductName>
-          <ProductNut>{nut}</ProductNut>
+          <ProductNut src={nut}></ProductNut>
           <ProductPrice>$ {price}</ProductPrice>
         </Details>
       </ProductDetail>
@@ -157,9 +170,8 @@ export const CartItem = (props) => {
           />
           <ProductAmount
             value={cartItems[id]}
-            onChange={(e) =>
-              updateCartItemCount(Number(e.target.value), id)
-            }></ProductAmount>
+            onChange={(e) => updateCartItemCount(Number(e.target.value), id)}
+          ></ProductAmount>
           <Add
             onClick={() => {
               handleIncreaseEvent();
@@ -171,14 +183,16 @@ export const CartItem = (props) => {
               handleSaveToWishlistEvent();
               removeCartItem(id);
               addToWish(id);
-            }}>
+            }}
+          >
             Save it for later
           </SaveButton>
           <DeleteButton
             onClick={() => {
               handleDeleteEvent();
               removeCartItem(id);
-            }}>
+            }}
+          >
             Delete from cart
           </DeleteButton>
         </ProductAmountContainer>

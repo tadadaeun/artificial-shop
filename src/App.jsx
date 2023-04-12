@@ -17,6 +17,7 @@ import ProductPage from "./pages/ProductPage";
 import IntroPage from "./pages/IntroPage";
 
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import Finish from "./pages/Finish";
 
 const router = createBrowserRouter([
   { path: "/", element: <IntroPage /> },
@@ -33,12 +34,13 @@ function App({ Component, pageProps }) {
       <BrowserRouter>
         <GoogleAnalytics>
           <Routes>
-            <Route path='/' element={<IntroPage />} />
-            <Route path='/home' element={<Home />} />
-            <Route path='/product' element={<ProductPage />} />
-            <Route path='/product/:id' element={<ProductPage />} />
-            <Route path='/cart' element={<Cart />} />
-            <Route path='/wishlist' element={<WishList />} />
+            <Route path="/" element={<IntroPage />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/product" element={<ProductPage />} />
+            <Route path="/product/:id" element={<ProductPage />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/wishlist" element={<WishList />} />
+            <Route path="/finish" element={<Finish />} />
           </Routes>
         </GoogleAnalytics>
       </BrowserRouter>

@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
-
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import Badge from "@mui/material/Badge";
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { ShopContext } from "../context/shop-context";
-import logo from "../images/logo1.png";
 import ReactGA from "react-ga4";
 
 const Container = styled.div`
@@ -116,7 +114,7 @@ const Navbar = ({ id }) => {
             to="/home"
             style={{ textDecoration: "none", cursor: "pointer" }}
           >
-            <Logo src={logo}></Logo>
+            <Logo src="../images/logo1.png"></Logo>
           </Link>
         </Left>
         <Center>

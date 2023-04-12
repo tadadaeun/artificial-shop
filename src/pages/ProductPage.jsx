@@ -32,11 +32,11 @@ const Title = styled.h1`
   font-weight: 300;
 `;
 
-const Nutri = styled.div`
-  width: 50px;
+const Nut = styled.img`
+  width: 100px;
 `;
 
-const Price = styled.span`
+const Price = styled.div`
   font-weight: 100;
   font-size: 40px;
 `;
@@ -123,7 +123,7 @@ const ProductPage = () => {
           <ProductImage detailImages={detailImages} onClick={onImageClick} />
           <InfoContainer>
             <Title>{title}</Title>
-            <Nutri>{nut}</Nutri>
+            <Nut src={nut} />
             <Price>${price}</Price>
             <AddContainer>
               <AmountContainer>
@@ -141,7 +141,8 @@ const ProductPage = () => {
                   onCheckoutClick();
                   navigate("/cart");
                 }}
-                disabled={!cartItemAmount}>
+                disabled={!cartItemAmount}
+              >
                 Check out in my cart
               </Button>
             </AddContainer>

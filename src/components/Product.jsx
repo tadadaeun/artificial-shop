@@ -32,13 +32,13 @@ const Image = styled.img`
 const Info = styled.div``;
 
 const Title = styled.div`
+  height: 45px;
   font-weight: 500;
   margin: 20px 10px 10px 10px;
 `;
 
-const Nut = styled.div`
-  font-weight: 300;
-  margin: 20px 10px 10px 10px;
+const Nut = styled.img`
+  width: 100px;
 `;
 
 const Price = styled.div`
@@ -104,11 +104,12 @@ const Product = (props) => {
             label: `Hovered on Product ${title}`,
             value: id,
           });
-        }}>
+        }}
+      >
         <Image src={img} />
         <Info>
           <Title>{title}</Title>
-          <Nut>Nutri-Score : {nut}</Nut>
+          <Nut src={nut}></Nut>
           <Price>${price}</Price>
         </Info>
       </ProductContainer>
@@ -130,7 +131,8 @@ const Product = (props) => {
             });
 
             addToCart(id);
-          }}>
+          }}
+        >
           Add to cart {cartItemAmount > 0 && <> ({cartItemAmount}) </>}
         </Button>
       </ButtonContainer>
