@@ -1,15 +1,17 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import ReactGA from "react-ga4";
 
 const GoogleAnalytics = ({ children }) => {
   const location = useLocation();
   const userId = sessionStorage.getItem("userId");
+  const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (!userId) {
-      alert("no user id"); // send to intro page
+    if (location.pathname !== "/" && !userId) {
+      navigate("/");
+      alert("Please enter user ID");
       return;
     }
 

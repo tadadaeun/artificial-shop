@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import ReactGA from "react-ga4";
 
 const Container = styled.div`
   display: flex;
@@ -30,6 +29,7 @@ const Button = styled.button`
 
 const IntroPage = () => {
   const [userId, setUserId] = React.useState("");
+  const navigate = useNavigate();
 
   function handleUserIdChange(event) {
     setUserId(event.target.value);
@@ -37,7 +37,12 @@ const IntroPage = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    sessionStorage.setItem("userId", userId);
+    if (userId.length === 0) {
+      alert("Please enter a user ID");
+    } else {
+      sessionStorage.setItem("userId", userId);
+      navigate("/home");
+    }
   }
 
   return (
@@ -66,12 +71,8 @@ const IntroPage = () => {
             onChange={handleUserIdChange}
           />
         </div>
-        <button type='submit'>Submit</button>
+        <Button type='submit'>Go to shop</Button>
       </form>
-
-      <Link to='/home'>
-        <Button>Go to shop</Button>
-      </Link>
     </Container>
   );
 };
