@@ -172,6 +172,7 @@ const Cart = () => {
     getTotalCartPrice,
     getTotalCartAmount,
     getTotalWishAmount,
+    getSelectedCartItemIds,
   } = useContext(ShopContext);
   const totalPrice = getTotalCartPrice();
   const totalAmount = getTotalCartAmount();
@@ -181,18 +182,19 @@ const Cart = () => {
 
   const [alert, SetAlert] = useState(false);
 
-  // TODO: Add Selected Product Item id
-  const handleCheckoutEvent = () => {
-    // ReactGA.event({
-    //   category: "Cart",
-    //   action: "checkout button click",
-    //   label: `Clicked Checkout button`,
-    //   value: id,
-    // });
+  const handleCheckoutEvent = (id) => {
+    ReactGA.event({
+      category: "Cart",
+      action: "checkout button click",
+      label: `Clicked Checkout button`,
+      value: id,
+    });
   };
 
   const alertHandler = () => {
-    if (getTotalCartAmount() === 1) {
+    const selectedItems = getSelectedCartItemIds();
+    if (selectedItems.length === 1) {
+      handleCheckoutEvent(selectedItems[0]);
       navigate("/finish");
     } else {
       SetAlert((alert) => !alert);
@@ -241,7 +243,7 @@ const Cart = () => {
           </ProductContainer>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-            <SummaryItem type="total">
+            <SummaryItem type='total'>
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ {totalPrice}</SummaryItemPrice>
             </SummaryItem>
