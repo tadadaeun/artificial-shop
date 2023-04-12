@@ -38,13 +38,6 @@ const IntroPage = () => {
   function handleSubmit(event) {
     event.preventDefault();
     sessionStorage.setItem("userId", userId);
-
-    //initialize GA
-    ReactGA.initialize("G-QKXHQVG6ZJ", {
-      gaOptions: {
-        userId: userId,
-      },
-    });
   }
 
   return (
@@ -83,4 +76,5 @@ const IntroPage = () => {
   );
 };
 
+document.title = "Intro";
 export default IntroPage;
