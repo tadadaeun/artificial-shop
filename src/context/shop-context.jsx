@@ -45,6 +45,10 @@ export const ShopContextProvider = (props) => {
     return totalAmount;
   };
 
+  const getSelectedCartItemIds = () => {
+    return Object.keys(cartItems).filter((key) => cartItems[key] > 0);
+  };
+
   const getTotalWishAmount = () => {
     let totalWishAmount = 0;
     for (const item in wishItems) {
@@ -97,6 +101,7 @@ export const ShopContextProvider = (props) => {
     removeFromWish,
     setWishItems,
     getTotalWishAmount,
+    getSelectedCartItemIds,
   };
 
   return (

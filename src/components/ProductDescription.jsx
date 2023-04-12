@@ -181,6 +181,15 @@ const ProductDescription = () => {
     });
   };
 
+  const onRecommendProductClick = () => {
+    ReactGA.event({
+      category: "Product",
+      action: "recommend_product_click",
+      label: `Clicked Recommend Product in Product ${prodId} Detail Page`,
+      value: prodId,
+    });
+  };
+
   const selectHandler = (value) => {
     setSelected(value);
   };
@@ -195,8 +204,7 @@ const ProductDescription = () => {
             <OptionLeftSelected
               style={{
                 backgroundColor: descriptionSelected ? "#006600" : "#9d9d9d",
-              }}
-            ></OptionLeftSelected>
+              }}></OptionLeftSelected>
             <OptionDescription
               onClick={() => {
                 onDescriptionClick();
@@ -204,8 +212,7 @@ const ProductDescription = () => {
               }}
               style={{
                 backgroundColor: descriptionSelected ? "white" : "#f1f1f1",
-              }}
-            >
+              }}>
               Description
             </OptionDescription>
           </OptionLeft>
@@ -213,8 +220,7 @@ const ProductDescription = () => {
             <OptionRightSelected
               style={{
                 backgroundColor: nutritionSelected ? "#006600" : "#9d9d9d",
-              }}
-            ></OptionRightSelected>
+              }}></OptionRightSelected>
             <OptionNutrition
               onClick={() => {
                 onNutritionClick();
@@ -222,8 +228,7 @@ const ProductDescription = () => {
               }}
               style={{
                 backgroundColor: nutritionSelected ? "white" : "#f1f1f1",
-              }}
-            >
+              }}>
               Nutrition
             </OptionNutrition>
           </OptionRight>
@@ -231,16 +236,14 @@ const ProductDescription = () => {
         <TextContainer>
           <TextDescription
             onMouseOver={onDescriptionHover}
-            style={{ display: descriptionSelected ? "block" : "none" }}
-          >
+            style={{ display: descriptionSelected ? "block" : "none" }}>
             {des}
           </TextDescription>
           <TextNutrition
             onMouseOver={onNutritionHover}
             style={{
               display: nutritionSelected ? "block" : "none",
-            }}
-          >
+            }}>
             <NutriImage src={nutriImage}></NutriImage>
           </TextNutrition>
         </TextContainer>
@@ -250,8 +253,10 @@ const ProductDescription = () => {
         <ImageContainer>
           <Image
             src={recommendingImage1}
-            onClick={() => navigate("/product/2")}
-          ></Image>
+            onClick={() => {
+              onRecommendProductClick();
+              navigate("/product/2");
+            }}></Image>
           <Image src={recommendingImage2}></Image>
           <Image src={recommendingImage3}></Image>
           <Image src={recommendingImage4}></Image>
