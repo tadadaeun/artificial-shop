@@ -76,5 +76,4 @@ const IntroPage = () => {
   );
 };
 
-document.title = "Intro";
 export default IntroPage;
