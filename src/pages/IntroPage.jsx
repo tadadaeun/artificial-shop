@@ -14,10 +14,31 @@ const Text = styled.div`
   text-align: center;
   font-size: 1rem;
   font-weight: 300;
-  width: 60vw;
+  width: 70vw;
+  line-height: 1.8;
+`;
+
+const Form = styled.form`
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const LabelContainer = styled.div``;
+
+const Label = styled.label``;
+
+const Input = styled.input`
+  &:active,
+  &:focus {
+    outline: none;
+  }
 `;
 
 const Button = styled.button`
+  margin-top: 30px;
   padding: 0.5rem 1rem;
   width: 300px;
   padding: 15px;
@@ -55,22 +76,20 @@ const IntroPage = () => {
         experience and have fun while helping us with our research.
       </Text>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='user-id'>User ID:</label>
-          <input
-            type='text'
-            id='user-id'
+      <Form onSubmit={handleSubmit}>
+        <LabelContainer>
+          <Label htmlFor="user-id">User ID:</Label>
+          <Input
+            type="text"
+            id="user-id"
             value={userId}
             onChange={handleUserIdChange}
           />
-        </div>
-        <button type='submit'>Submit</button>
-      </form>
-
-      <Link to='/home'>
-        <Button>Go to shop</Button>
-      </Link>
+        </LabelContainer>
+        <Link to="/home">
+          <Button type="submit">Submit & Go to shop</Button>
+        </Link>
+      </Form>
     </Container>
   );
 };

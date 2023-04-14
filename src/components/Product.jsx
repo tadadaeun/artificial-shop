@@ -34,16 +34,17 @@ const Info = styled.div``;
 const Title = styled.div`
   height: 45px;
   font-weight: 500;
-  margin: 20px 10px 10px 10px;
+  margin: 20px 10px 5px 10px;
 `;
 
 const Nut = styled.img`
   width: 100px;
+  margin-left: -3px;
 `;
 
 const Price = styled.div`
   color: #232323;
-  margin: 10px;
+  margin: 0 5px;
 `;
 
 const ButtonContainer = styled.div`

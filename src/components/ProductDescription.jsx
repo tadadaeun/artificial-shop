@@ -246,7 +246,7 @@ const ProductDescription = () => {
         </TextContainer>
       </DescriptionContainer>
       <RecommendingContainer>
-        <RecommendingText>Recommendations for you</RecommendingText>
+        <RecommendingText>Featured Products</RecommendingText>
         <ImageContainer>
           <Image
             src={recommendingImage1}

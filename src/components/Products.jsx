@@ -11,12 +11,6 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-const Test = styled.div`
-  height: 10px;
-  width: 60px;
-  background-color: black;
-`;
-
 const Products = ({ cat, filters, sort, productList = [] }) => {
   return (
     <Container>
