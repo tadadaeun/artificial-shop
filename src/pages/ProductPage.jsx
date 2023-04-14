@@ -1,3 +1,4 @@
+import React from "react";
 import { Add, Remove } from "@material-ui/icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -90,19 +91,28 @@ const ProductPage = () => {
 
   const { id, title, price, detailImages, nut } = PRODUCTS[prodId - 1];
 
-  const { addToCart, cartItems, removeFromCart, updateCartItemCount } =
-    useContext(ShopContext);
+  const { cartItems, updateCartItemCount } = useContext(ShopContext);
   const cartItemAmount = cartItems[id];
+  const [count, setCount] = React.useState(cartItemAmount || 1);
 
   const navigate = useNavigate();
 
-  const onImageClick = () => {
-    ReactGA.event({
-      category: "Product",
-      action: "product_image_click",
-      label: `Clicked another image of the Product`,
-      value: id,
-    });
+  const onImageClick = (isNutriImages) => {
+    if (isNutriImages) {
+      ReactGA.event({
+        category: "Product",
+        action: "product_nutrition_facts_image_click",
+        label: `Clicked Nutrition Facts image of the Product`,
+        value: id,
+      });
+    } else {
+      ReactGA.event({
+        category: "Product",
+        action: "product_image_click",
+        label: `Clicked another image of the Product`,
+        value: id,
+      });
+    }
   };
 
   const onCheckoutClick = () => {
@@ -127,22 +137,26 @@ const ProductPage = () => {
             <Price>${price}</Price>
             <AddContainer>
               <AmountContainer>
-                <Remove onClick={() => removeFromCart(id)} />
-                <ProductAmount
-                  value={cartItems[id]}
-                  onChange={(e) =>
-                    updateCartItemCount(Number(e.target.value), id)
-                  }
-                ></ProductAmount>
-                <Add onClick={() => addToCart(id)} />
+                <Remove
+                  onClick={() => {
+                    if (count !== 0) {
+                      setCount(count - 1);
+                    }
+                  }}
+                />
+                <ProductAmount value={count} />
+                <Add onClick={() => setCount(count + 1)} />
               </AmountContainer>
               <Button
                 onClick={() => {
-                  onCheckoutClick();
-                  navigate("/cart");
-                }}
-                disabled={!cartItemAmount}
-              >
+                  if (count > 0) {
+                    onCheckoutClick();
+                    updateCartItemCount(Number(count), id);
+                    navigate("/cart");
+                  } else {
+                    alert("Please select the quantity");
+                  }
+                }}>
                 Check out in my cart
               </Button>
             </AddContainer>

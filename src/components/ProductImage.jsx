@@ -38,11 +38,10 @@ const ProductImage = ({ detailImages = [], onClick }) => {
         {detailImages.map((detailImg, index) => (
           <ImgPre
             onClick={() => {
-              onClick(index);
+              onClick(index + 1 === detailImages.length);
               setSelectedIdx(index);
             }}
-            src={detailImg}
-          ></ImgPre>
+            src={detailImg}></ImgPre>
         ))}
       </ImgPreContainer>
       <Image>

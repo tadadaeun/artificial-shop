@@ -105,8 +105,7 @@ const Product = (props) => {
             label: `Hovered on Product ${title}`,
             value: id,
           });
-        }}
-      >
+        }}>
         <Image src={img} />
         <Info>
           <Title>{title}</Title>
@@ -119,7 +118,17 @@ const Product = (props) => {
           {selected > 0 ? (
             <Favorite />
           ) : (
-            <FavoriteBorderOutlined onClick={() => addToWish(id)} />
+            <FavoriteBorderOutlined
+              onClick={() => {
+                ReactGA.event({
+                  category: "Product",
+                  action: "add_wishlist_click",
+                  label: `Clicked the button to add ${title} to the Wishlist `,
+                  value: id,
+                });
+                addToWish(id);
+              }}
+            />
           )}
         </Icon>
         <Button
@@ -132,8 +141,7 @@ const Product = (props) => {
             });
 
             addToCart(id);
-          }}
-        >
+          }}>
           Add to cart {cartItemAmount > 0 && <> ({cartItemAmount}) </>}
         </Button>
       </ButtonContainer>
