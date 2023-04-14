@@ -115,10 +115,10 @@ export const PRODUCTS = [
     nutriScore: 2,
     des: "Add a delicious crunch to your cereal collection with the Oatmeal Squares Brown Sugar Cereal from Quaker Oats. Made from heart-healthy whole grains, this cereal is also a good source of protein, fiber and iron for a delicious, easy way to get nutrients you need. A hint of brown sugar adds a pop of sweetness to this cereal, making it tasty enough to enjoy as a snack or satisfy your sweet tooth.",
     img: "../images/7.png",
-    nutriImage: "",
+    nutriImage: "https://target.scene7.com/is/image/Target/GUEST_802675d1-9c7a-423f-9a69-226ab7130d90?wid=1000&hei=1000&qlt=80&fmt=webp",
     detailImages: [
       "../images/7.png",
-      "https://target.scene7.com/is/image/Target/GUEST_c0a40985-3c24-4256-b82e-ff2368d2cb7a?wid=1080&hei=1080&fmt=pjpeg"
+      "https://target.scene7.com/is/image/Target/GUEST_802675d1-9c7a-423f-9a69-226ab7130d90?wid=1000&hei=1000&qlt=80&fmt=webp"
     ],
     recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
     recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
