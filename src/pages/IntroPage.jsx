@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -50,6 +50,7 @@ const Button = styled.button`
 
 const IntroPage = () => {
   const [userId, setUserId] = React.useState("");
+  const navigate = useNavigate();
 
   function handleUserIdChange(event) {
     setUserId(event.target.value);
@@ -57,7 +58,12 @@ const IntroPage = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    sessionStorage.setItem("userId", userId);
+    if (userId.length === 0) {
+      alert("Please enter a user ID");
+    } else {
+      sessionStorage.setItem("userId", userId);
+      navigate("/home");
+    }
   }
 
   return (
@@ -78,17 +84,15 @@ const IntroPage = () => {
 
       <Form onSubmit={handleSubmit}>
         <LabelContainer>
-          <Label htmlFor="user-id">User ID:</Label>
+          <Label htmlFor='user-id'>User ID:</Label>
           <Input
-            type="text"
-            id="user-id"
+            type='text'
+            id='user-id'
             value={userId}
             onChange={handleUserIdChange}
           />
         </LabelContainer>
-        <Link to="/home">
-          <Button type="submit">Submit & Go to shop</Button>
-        </Link>
+        <Button type='submit'>Submit & Go to shop</Button>
       </Form>
     </Container>
   );
