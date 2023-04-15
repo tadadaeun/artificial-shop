@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "react-medium-image-zoom/dist/styles.css";
 import { GlassMagnifier } from "react-image-magnifiers";
 import styled from "styled-components";
-import { height } from "@mui/system";
 
 const ImgContainer = styled.div`
   flex: 0.8;
@@ -23,10 +22,12 @@ const ImgPre = styled.img`
 `;
 
 const Image = styled.div`
-  width: 300px;
-  height: 400px;
+  height: 100%;
   margin: 0 30px;
   object-fit: scale-down;
+  & img {
+    max-height: 100%;
+  }
 `;
 
 const ProductImage = ({ detailImages = [], onClick }) => {
@@ -46,9 +47,12 @@ const ProductImage = ({ detailImages = [], onClick }) => {
       </ImgPreContainer>
       <Image>
         <GlassMagnifier
+          style={{
+            height: "100%",
+          }}
           imageSrc={detailImages[selectedIdx]}
-          square="false"
-          magnifierSize="40%"
+          square='false'
+          magnifierSize='40%'
         />
       </Image>
     </ImgContainer>
