@@ -25,9 +25,6 @@ const Image = styled.div`
   height: 100%;
   margin: 0 30px;
   object-fit: scale-down;
-  & img {
-    max-height: 100%;
-  }
 `;
 
 const ProductImage = ({ detailImages = [], onClick }) => {
@@ -51,6 +48,7 @@ const ProductImage = ({ detailImages = [], onClick }) => {
             height: "100%",
           }}
           imageSrc={detailImages[selectedIdx]}
+          className='glass-magnifier'
           square='false'
           magnifierSize='40%'
         />
