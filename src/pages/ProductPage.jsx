@@ -112,10 +112,9 @@ const ProductPage = () => {
   };
 
   const onCheckoutClick = () => {
-    sendLog(
-      "product_checkout_clicked",
-      `Clicked Checkout button on the Product ${id} detail page`
-    );
+    sendLog("product_checkout_clicked", {
+      label: `Clicked Checkout button on the Product ${id} detail page`,
+    });
   };
 
   return (

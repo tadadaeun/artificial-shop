@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { PRODUCTS } from "../data";
-import ReactGA from "react-ga4";
+import useAmplitude from "../hooks/use-amplitude";
 
 const Container = styled.div``;
 
@@ -145,48 +145,38 @@ const ProductDescription = () => {
     [selected]
   );
 
+  const { sendLog } = useAmplitude({
+    product_id: prodId,
+    page_name: "product_detail_page",
+  });
+
   const onDescriptionClick = () => {
-    ReactGA.event({
-      category: "Product",
-      action: "description_click",
+    sendLog("description_click", {
       label: `Clicked Description of Product ${prodId}`,
-      value: prodId,
     });
   };
 
   const onDescriptionHover = () => {
-    ReactGA.event({
-      category: "Product",
-      action: "description_hover",
+    sendLog("description_hover", {
       label: `Hovered Description of Product ${prodId}`,
-      value: prodId,
     });
   };
 
   const onNutritionClick = () => {
-    ReactGA.event({
-      category: "Product",
-      action: "nutrition_info_click",
+    sendLog("nutrition_info_click", {
       label: `Clicked Nutrition information of Product ${prodId}`,
-      value: prodId,
     });
   };
 
   const onNutritionHover = () => {
-    ReactGA.event({
-      category: "Product",
-      action: "nutrition_info_hover",
+    sendLog("nutrition_info_hover", {
       label: `Hovered Nutrition information of Product ${prodId}`,
-      value: prodId,
     });
   };
 
   const onRecommendProductClick = () => {
-    ReactGA.event({
-      category: "Product",
-      action: "recommend_product_click",
+    sendLog("recommend_product_click", {
       label: `Clicked Recommend Product in Product ${prodId} Detail Page`,
-      value: prodId,
     });
   };
 

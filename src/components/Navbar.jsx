@@ -5,7 +5,7 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { ShopContext } from "../context/shop-context";
-import ReactGA from "react-ga4";
+import useAmplitude from "../hooks/use-amplitude";
 
 const Container = styled.div`
   height: 65px;
@@ -95,13 +95,15 @@ const Navbar = ({ id }) => {
     return data.filter((item) => item.title.toLowerCase().includes(query));
   };
 
+  const { sendLog } = useAmplitude({
+    product_id: id,
+    page_name: "product_detail_page",
+  });
+
   const onBadgeIconClick = () => {
     if (id) {
-      ReactGA.event({
-        category: "Product",
-        action: "go_to_cart_click",
+      sendLog("go_to_cart_click", {
         label: `Clicked Go to cart button on the Product ${id} detail page`,
-        value: id,
       });
     }
   };
@@ -111,14 +113,13 @@ const Navbar = ({ id }) => {
       <Wrapper>
         <Left>
           <Link
-            to="/home"
-            style={{ textDecoration: "none", cursor: "pointer" }}
-          >
-            <Logo src="../images/logo1.png"></Logo>
+            to='/home'
+            style={{ textDecoration: "none", cursor: "pointer" }}>
+            <Logo src='../images/logo1.png'></Logo>
           </Link>
         </Left>
         <Center>
-          <Link to="/home" style={{ textDecoration: "none" }}>
+          <Link to='/home' style={{ textDecoration: "none" }}>
             <Menu>Products</Menu>
           </Link>
           <Menu>Categories</Menu>
@@ -126,7 +127,7 @@ const Navbar = ({ id }) => {
           <Menu>What's New</Menu>
           <SearchContainer>
             <Input
-              placeholder="Search"
+              placeholder='Search'
               onChange={(e) => {
                 setQuery(e.target.value);
               }}
@@ -135,9 +136,9 @@ const Navbar = ({ id }) => {
           </SearchContainer>
         </Center>
         <Right>
-          <Link to="/cart" onClick={onBadgeIconClick}>
+          <Link to='/cart' onClick={onBadgeIconClick}>
             <MenuItem>
-              <Badge badgeContent={totalAmount} color="success">
+              <Badge badgeContent={totalAmount} color='success'>
                 <ShoppingCartOutlined style={{ fill: "black" }} />
               </Badge>
             </MenuItem>

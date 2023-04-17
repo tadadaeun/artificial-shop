@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ShopContext } from "../context/shop-context";
-import ReactGA from "react-ga4";
+import useAmplitude from "../hooks/use-amplitude";
 
 const Container = styled.div`
   flex: 1;
@@ -86,24 +86,25 @@ const Product = (props) => {
   const navigate = useNavigate();
   const selected = wishItems[id];
   const cartItemAmount = cartItems[id];
+
+  const { sendLog } = useAmplitude({
+    product_id: id,
+    product_name: title,
+    page_name: "product_detail_page",
+  });
+
   return (
     <Container>
       <ProductContainer
         onClick={() => {
           navigate("/product/" + id);
-          ReactGA.event({
-            category: "Product",
-            action: "product_click",
+          sendLog("product_click", {
             label: `Clicked on Product ${title}`,
-            value: id,
           });
         }}
         onMouseOver={() => {
-          ReactGA.event({
-            category: "Product",
-            action: "product_hover",
+          sendLog("product_hover", {
             label: `Hovered on Product ${title}`,
-            value: id,
           });
         }}>
         <Image src={img} />
@@ -120,11 +121,8 @@ const Product = (props) => {
           ) : (
             <FavoriteBorderOutlined
               onClick={() => {
-                ReactGA.event({
-                  category: "Product",
-                  action: "add_wishlist_click",
+                sendLog("add_wishlist_button_click", {
                   label: `Clicked the button to add ${title} to the Wishlist `,
-                  value: id,
                 });
                 addToWish(id);
               }}
@@ -133,13 +131,9 @@ const Product = (props) => {
         </Icon>
         <Button
           onClick={() => {
-            ReactGA.event({
-              category: "Product",
-              action: "add_cart_button_click",
-              label: `Added Product ${title} to cart`,
-              value: id,
+            sendLog("add_cart_button_click", {
+              label: `Clicked the button to add ${title} to the Cart `,
             });
-
             addToCart(id);
           }}>
           Add to cart {cartItemAmount > 0 && <> ({cartItemAmount}) </>}

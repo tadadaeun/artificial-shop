@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 import { Add, Remove } from "@material-ui/icons";
 import { ShopContext } from "../context/shop-context";
-import ReactGA from "react-ga4";
 import { useNavigate } from "react-router-dom";
+import useAmplitude from "../hooks/use-amplitude";
 
 const ProductContainer = styled.div`
   border-bottom: 0.5px solid lightgray;
@@ -102,39 +102,33 @@ export const CartItem = (props) => {
     addToWish,
   } = useContext(ShopContext);
 
+  const { sendLog } = useAmplitude({
+    page_name: "cart_page",
+    product_id: id,
+    product_name: title,
+  });
+
   const handleDeleteEvent = () => {
-    ReactGA.event({
-      category: "Cart",
-      action: "remove_from_cart",
+    sendLog("remove_from_cart", {
       label: `Removed Product ${title} from Cart`,
-      value: id,
     });
   };
 
   const handleDecreaseEvent = () => {
-    ReactGA.event({
-      category: "Cart",
-      action: "decrease product quantities in the cart",
-      label: `Clicked the Decrease quantity button for Product ${title} in Cart`,
-      value: id,
+    sendLog("decrease_quantity", {
+      label: `Decreased quantity of Product ${title} in Cart`,
     });
   };
 
   const handleIncreaseEvent = () => {
-    ReactGA.event({
-      category: "Cart",
-      action: "increase product quantities in the cart",
-      label: `Clicked the Increase quantity button for Product ${title} in Cart`,
-      value: id,
+    sendLog("increase_quantity", {
+      label: `Increased quantity of Product ${title} in Cart`,
     });
   };
 
   const handleSaveToWishlistEvent = () => {
-    ReactGA.event({
-      category: "Wishlist",
-      action: "save it for later button click",
-      label: `Clicked save it for later button for Product ${title}`,
-      value: id,
+    sendLog("add_to_wishlist", {
+      label: `Added Product ${title} to Wishlist`,
     });
   };
 
@@ -152,8 +146,7 @@ export const CartItem = (props) => {
           <ProductName
             onClick={() => {
               navigate("/product/" + id);
-            }}
-          >
+            }}>
             {title}
           </ProductName>
           <ProductNut src={nut}></ProductNut>
@@ -170,8 +163,9 @@ export const CartItem = (props) => {
           />
           <ProductAmount
             value={cartItems[id]}
-            onChange={(e) => updateCartItemCount(Number(e.target.value), id)}
-          ></ProductAmount>
+            onChange={(e) =>
+              updateCartItemCount(Number(e.target.value), id)
+            }></ProductAmount>
           <Add
             onClick={() => {
               handleIncreaseEvent();
@@ -183,16 +177,14 @@ export const CartItem = (props) => {
               handleSaveToWishlistEvent();
               removeCartItem(id);
               addToWish(id);
-            }}
-          >
+            }}>
             Save it for later
           </SaveButton>
           <DeleteButton
             onClick={() => {
               handleDeleteEvent();
               removeCartItem(id);
-            }}
-          >
+            }}>
             Delete from cart
           </DeleteButton>
         </ProductAmountContainer>

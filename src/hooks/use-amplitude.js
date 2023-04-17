@@ -1,12 +1,12 @@
 import React from "react";
 import amplitude from "amplitude-js";
 
-const useAmplitude = (config) => {
+const useAmplitude = (defaultConfig) => {
   const sendLog = React.useCallback(
-    (log, label) => {
-      amplitude.getInstance().logEvent(log, { ...config, label });
+    (log, config) => {
+      amplitude.getInstance().logEvent(log, { ...defaultConfig, ...config });
     },
-    [config]
+    [defaultConfig]
   );
 
   return { sendLog };
