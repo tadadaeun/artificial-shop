@@ -10,7 +10,7 @@ import { ShopContext } from "../context/shop-context";
 import { useContext } from "react";
 import { mobile } from "../responsive";
 import ProductDescription from "../components/ProductDescription";
-import ReactGA from "react-ga4";
+import useAmplitude from "../hooks/use-amplitude";
 
 const Container = styled.div``;
 
@@ -97,30 +97,23 @@ const ProductPage = () => {
 
   const navigate = useNavigate();
 
+  const { sendLog } = useAmplitude({
+    product_id: id,
+    product_name: title,
+    page_name: "product_detail_page",
+  });
+
   const onImageClick = (isNutriImages) => {
     if (isNutriImages) {
-      ReactGA.event({
-        category: "Product",
-        action: "product_nutrition_facts_image_click",
-        label: `Clicked Nutrition Facts image of the Product`,
-        value: id,
-      });
+      sendLog("product_nutrition_image_clicked");
     } else {
-      ReactGA.event({
-        category: "Product",
-        action: "product_image_click",
-        label: `Clicked another image of the Product`,
-        value: id,
-      });
+      sendLog("product_image_clicked");
     }
   };
 
   const onCheckoutClick = () => {
-    ReactGA.event({
-      category: "Product",
-      action: "product_checkout_click",
+    sendLog("product_checkout_clicked", {
       label: `Clicked Checkout button on the Product ${id} detail page`,
-      value: id,
     });
   };
 

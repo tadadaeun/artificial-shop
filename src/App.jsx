@@ -16,7 +16,7 @@ import { ShopContextProvider } from "./context/shop-context";
 import ProductPage from "./pages/ProductPage";
 import IntroPage from "./pages/IntroPage";
 
-import GoogleAnalytics from "./components/GoogleAnalytics";
+import TrackingProvider from "./components/Amplitude";
 import Finish from "./pages/Finish";
 
 const router = createBrowserRouter([
@@ -32,17 +32,17 @@ function App({ Component, pageProps }) {
   return (
     <ShopContextProvider>
       <BrowserRouter>
-        <GoogleAnalytics>
+        <TrackingProvider>
           <Routes>
-            <Route path="/" element={<IntroPage />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/product" element={<ProductPage />} />
-            <Route path="/product/:id" element={<ProductPage />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/wishlist" element={<WishList />} />
-            <Route path="/finish" element={<Finish />} />
+            <Route path='/' element={<IntroPage />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/product' element={<ProductPage />} />
+            <Route path='/product/:id' element={<ProductPage />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/wishlist' element={<WishList />} />
+            <Route path='/finish' element={<Finish />} />
           </Routes>
-        </GoogleAnalytics>
+        </TrackingProvider>
       </BrowserRouter>
     </ShopContextProvider>
   );
