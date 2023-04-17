@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import amplitude from "amplitude-js";
 
 const Container = styled.div`
   display: flex;
@@ -61,6 +62,7 @@ const IntroPage = () => {
     if (userId.length === 0) {
       alert("Please enter a user ID");
     } else {
+      amplitude.getInstance().setUserId(userId);
       sessionStorage.setItem("userId", userId);
       navigate("/home");
     }
