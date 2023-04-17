@@ -109,7 +109,6 @@ const Product = (props) => {
         <Image src={img} />
         <Info>
           <Title>{title}</Title>
-          <Nut src={nut}></Nut>
           <Price>${price}</Price>
         </Info>
       </ProductContainer>
