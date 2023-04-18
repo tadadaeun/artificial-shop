@@ -133,7 +133,6 @@ const ProductPage = () => {
           <ProductImage detailImages={detailImages} onClick={onImageClick} />
           <InfoContainer>
             <Title>{title}</Title>
-            <Nut src={nut} />
             <Price>${price}</Price>
             <AddContainer>
               <AmountContainer>
@@ -156,7 +155,8 @@ const ProductPage = () => {
                   } else {
                     alert("Please select the quantity");
                   }
-                }}>
+                }}
+              >
                 Check out in my cart
               </Button>
             </AddContainer>
