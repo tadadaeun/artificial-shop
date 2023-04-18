@@ -10,6 +10,12 @@ const Container = styled.div`
   font-size: 14px;
   font-weight: 100px;
   cursor: pointer;
+  @media (max-width: 768px) {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+  }
 `;
 
 const Announcement = () => {

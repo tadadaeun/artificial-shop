@@ -22,6 +22,9 @@ const Top = styled.div`
   padding: 50px;
   display: flex;
   height: 70vh;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -149,7 +152,8 @@ const ProductPage = () => {
                   } else {
                     alert("Please select the quantity");
                   }
-                }}>
+                }}
+              >
                 Check out in my cart
               </Button>
             </AddContainer>

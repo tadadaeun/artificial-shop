@@ -6,7 +6,7 @@ import { PRODUCTS } from "../data";
 import { mobile } from "../responsive";
 import { CartItem } from "../components/CartItem";
 import { ShopContext } from "../context/shop-context";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import WishListSuggestion from "../components/WishListSuggestion";
 import useAmplitude from "../hooks/use-amplitude";
 
@@ -30,7 +30,9 @@ const Top = styled.div`
 `;
 
 const TopTexts = styled.div`
-  ${mobile({ display: "none" })}
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 const TopText = styled.span`
   text-decoration: underline;
@@ -42,7 +44,9 @@ const Bottom = styled.div`
   margin: 20px;
   display: flex;
   justify-content: space-between;
-  ${mobile({ flexDirection: "column" })}
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const ProductContainer = styled.div`
@@ -52,11 +56,11 @@ const ProductContainer = styled.div`
 `;
 
 const WhishListContainer = styled.div`
-  width: 70vw;
+  width: 90vw;
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 15px;
-  margin-top: 20px;
+  margin: 20px;
 `;
 
 const WhishListTitle = styled.div`
@@ -230,22 +234,10 @@ const Cart = () => {
             ) : (
               <EmptyMessage>Your cart is empty! </EmptyMessage>
             )}
-            <WhishListContainer>
-              <WhishListTitle>Saved for later</WhishListTitle>
-              <WhishListItems>
-                {PRODUCTS.map((product) => {
-                  if (wishItems[product.id] !== 0) {
-                    return (
-                      <WishListSuggestion data={product} key={product.id} />
-                    );
-                  }
-                })}
-              </WhishListItems>
-            </WhishListContainer>
           </ProductContainer>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-            <SummaryItem type='total'>
+            <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ {totalPrice}</SummaryItemPrice>
             </SummaryItem>
@@ -256,6 +248,16 @@ const Cart = () => {
           </Summary>
         </Bottom>
       </Wrapper>
+      <WhishListContainer>
+        <WhishListTitle>Saved for later</WhishListTitle>
+        <WhishListItems>
+          {PRODUCTS.map((product) => {
+            if (wishItems[product.id] !== 0) {
+              return <WishListSuggestion data={product} key={product.id} />;
+            }
+          })}
+        </WhishListItems>
+      </WhishListContainer>
       <AlertContainer style={{ visibility: alert ? "visible" : "hidden" }}>
         <AlertText>
           Please ensure that you have only put one item in your cart. If you

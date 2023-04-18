@@ -105,11 +105,27 @@ const RecommendingText = styled.div`
 const ImageContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin: 0 10px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const Detail = styled.div`
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 `;
 
 const Image = styled.img`
-  width: 250px;
+  width: 180px;
+`;
+
+const Title = styled.div`
+  width: 80%;
 `;
 
 const options = {
@@ -125,6 +141,7 @@ const ProductDescription = () => {
   const prodId = Number(splits[splits.length - 1]);
 
   const {
+    id,
     des,
     nutriImage,
     recommendingImage1,
@@ -194,7 +211,8 @@ const ProductDescription = () => {
             <OptionLeftSelected
               style={{
                 backgroundColor: descriptionSelected ? "#006600" : "#9d9d9d",
-              }}></OptionLeftSelected>
+              }}
+            ></OptionLeftSelected>
             <OptionDescription
               onClick={() => {
                 onDescriptionClick();
@@ -202,7 +220,8 @@ const ProductDescription = () => {
               }}
               style={{
                 backgroundColor: descriptionSelected ? "white" : "#f1f1f1",
-              }}>
+              }}
+            >
               Description
             </OptionDescription>
           </OptionLeft>
@@ -210,7 +229,8 @@ const ProductDescription = () => {
             <OptionRightSelected
               style={{
                 backgroundColor: nutritionSelected ? "#006600" : "#9d9d9d",
-              }}></OptionRightSelected>
+              }}
+            ></OptionRightSelected>
             <OptionNutrition
               onClick={() => {
                 onNutritionClick();
@@ -218,7 +238,8 @@ const ProductDescription = () => {
               }}
               style={{
                 backgroundColor: nutritionSelected ? "white" : "#f1f1f1",
-              }}>
+              }}
+            >
               Nutrition
             </OptionNutrition>
           </OptionRight>
@@ -226,14 +247,16 @@ const ProductDescription = () => {
         <TextContainer>
           <TextDescription
             onMouseOver={onDescriptionHover}
-            style={{ display: descriptionSelected ? "block" : "none" }}>
+            style={{ display: descriptionSelected ? "block" : "none" }}
+          >
             {des}
           </TextDescription>
           <TextNutrition
             onMouseOver={onNutritionHover}
             style={{
               display: nutritionSelected ? "block" : "none",
-            }}>
+            }}
+          >
             <NutriImage src={nutriImage}></NutriImage>
           </TextNutrition>
         </TextContainer>
@@ -241,15 +264,42 @@ const ProductDescription = () => {
       <RecommendingContainer>
         <RecommendingText>Featured Products</RecommendingText>
         <ImageContainer>
-          <Image
-            src={recommendingImage1}
-            onClick={() => {
-              onRecommendProductClick();
-              navigate("/product/2");
-            }}></Image>
-          <Image src={recommendingImage2}></Image>
-          <Image src={recommendingImage3}></Image>
-          <Image src={recommendingImage4}></Image>
+          <Detail>
+            <Image
+              src={recommendingImage1}
+              onClick={() => {
+                navigate("/product/1");
+              }}
+            ></Image>
+            <Title>Post Shredded Wheat Big Biscuit Whole Grain Cereal</Title>
+          </Detail>
+          <Detail>
+            <Image
+              src={recommendingImage2}
+              onClick={() => {
+                navigate("/product/2");
+              }}
+            ></Image>
+            <Title>Kellogg's Frosted Mini-Wheats Cereal</Title>
+          </Detail>
+          <Detail>
+            <Image
+              src={recommendingImage3}
+              onClick={() => {
+                navigate("/product/3");
+              }}
+            ></Image>
+            <Title>Kashi Go, Breakfast Cereal, Original</Title>
+          </Detail>
+          <Detail>
+            <Image
+              src={recommendingImage4}
+              onClick={() => {
+                navigate("/product/4");
+              }}
+            ></Image>
+            <Title>Kellogg's All-Bran Original Cold Breakfast Cereal</Title>
+          </Detail>
         </ImageContainer>
       </RecommendingContainer>
     </Container>

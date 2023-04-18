@@ -3,7 +3,6 @@ import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import Badge from "@mui/material/Badge";
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { mobile } from "../responsive";
 import { ShopContext } from "../context/shop-context";
 import useAmplitude from "../hooks/use-amplitude";
 
@@ -14,7 +13,13 @@ const Container = styled.div`
   position: sticky;
   z-index: 10;
   background-color: white;
-  ${mobile({ height: "50px" })}
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 65px;
+    margin: 0;
+    position: fixed;
+    top: 25px;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -23,7 +28,6 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
-  ${mobile({ padding: "10px 0px" })}
 `;
 
 const Left = styled.div`
@@ -35,6 +39,10 @@ const Left = styled.div`
 const Logo = styled.img`
   width: 30px;
   margin: 0 20px;
+  @media (max-width: 768px) {
+    width: 25px;
+    margin: 2px 7px;
+  }
 `;
 
 const Center = styled.div`
@@ -42,6 +50,9 @@ const Center = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Menu = styled.div`
@@ -74,9 +85,11 @@ const Input = styled.input`
 const Right = styled.div`
   flex: 0.5;
   display: flex;
-  align-items: center;
   justify-content: flex-end;
   margin-right: 20px;
+  @media (max-width: 768px) {
+    margin-right: 10px;
+  }
 `;
 
 const MenuItem = styled.div`
@@ -113,13 +126,14 @@ const Navbar = ({ id }) => {
       <Wrapper>
         <Left>
           <Link
-            to='/home'
-            style={{ textDecoration: "none", cursor: "pointer" }}>
-            <Logo src='../images/logo1.png'></Logo>
+            to="/home"
+            style={{ textDecoration: "none", cursor: "pointer" }}
+          >
+            <Logo src="../images/logo1.png"></Logo>
           </Link>
         </Left>
         <Center>
-          <Link to='/home' style={{ textDecoration: "none" }}>
+          <Link to="/home" style={{ textDecoration: "none" }}>
             <Menu>Products</Menu>
           </Link>
           <Menu>Categories</Menu>
@@ -127,7 +141,7 @@ const Navbar = ({ id }) => {
           <Menu>What's New</Menu>
           <SearchContainer>
             <Input
-              placeholder='Search'
+              placeholder="Search"
               onChange={(e) => {
                 setQuery(e.target.value);
               }}
@@ -136,9 +150,9 @@ const Navbar = ({ id }) => {
           </SearchContainer>
         </Center>
         <Right>
-          <Link to='/cart' onClick={onBadgeIconClick}>
+          <Link to="/cart" onClick={onBadgeIconClick}>
             <MenuItem>
-              <Badge badgeContent={totalAmount} color='success'>
+              <Badge badgeContent={totalAmount} color="success">
                 <ShoppingCartOutlined style={{ fill: "black" }} />
               </Badge>
             </MenuItem>

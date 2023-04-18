@@ -4,7 +4,10 @@ import { mobile } from "../responsive";
 import { Add, DeleteOutline, Remove } from "@material-ui/icons";
 import { ShopContext } from "../context/shop-context";
 
-const ProductContainer = styled.div``;
+const ProductContainer = styled.div`
+  width: 300px;
+  margin: 25px;
+`;
 
 const ProductDetail = styled.div`
   flex: 2;
@@ -12,6 +15,7 @@ const ProductDetail = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 400px;
 `;
 
 const Image = styled.img`
@@ -19,6 +23,7 @@ const Image = styled.img`
 `;
 
 const Details = styled.div`
+  width: 80%;
   padding: 20px;
   display: flex;
   flex-direction: column;

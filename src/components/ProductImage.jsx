@@ -12,6 +12,10 @@ const ImgContainer = styled.div`
 const ImgPreContainer = styled.div`
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const ImgPre = styled.img`
@@ -39,7 +43,8 @@ const ProductImage = ({ detailImages = [], onClick }) => {
               onClick(index + 1 === detailImages.length);
               setSelectedIdx(index);
             }}
-            src={detailImg}></ImgPre>
+            src={detailImg}
+          ></ImgPre>
         ))}
       </ImgPreContainer>
       <Image>
@@ -48,9 +53,9 @@ const ProductImage = ({ detailImages = [], onClick }) => {
             height: "100%",
           }}
           imageSrc={detailImages[selectedIdx]}
-          className='glass-magnifier'
-          square='false'
-          magnifierSize='40%'
+          className="glass-magnifier"
+          square="false"
+          magnifierSize="40%"
         />
       </Image>
     </ImgContainer>

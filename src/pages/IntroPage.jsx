@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import amplitude from "amplitude-js";
+import Announcement from "../components/Announcement";
 
 const Container = styled.div`
   display: flex;
@@ -9,6 +10,10 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @media (max-width: 768px) {
+    margin: 30px;
+    height: auto;
+  }
 `;
 
 const Text = styled.div`
@@ -17,10 +22,14 @@ const Text = styled.div`
   font-weight: 300;
   width: 70vw;
   line-height: 1.8;
+  @media (max-width: 768px) {
+    margin-top: 30px;
+    width: 90vw;
+  }
 `;
 
 const Form = styled.form`
-  margin: 30px;
+  margin: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,34 +78,42 @@ const IntroPage = () => {
   }
 
   return (
-    <Container>
-      <Text>
-        Welcome to our hypothetical grocery shopping task! We are conducting a
-        study to understand how consumers shop for groceries online, and we
-        would love for you to participate. In this task, we want you to choose
-        the cold breakfast cereal that you are most interested in purchasing. We
-        have designed the online grocery shopping webpage to simulate a
-        real-life shopping experience as closely as possible, so please feel
-        free to explore all of its features! You can add items to your wish list
-        and view products in detail to make the most informed decision. Once you
-        have found the cold breakfast cereal that you want to purchase the most,
-        please add the item to your cart and check out. We want you to enjoy the
-        experience and have fun while helping us with our research.
-      </Text>
-
-      <Form onSubmit={handleSubmit}>
-        <LabelContainer>
-          <Label htmlFor='user-id'>User ID:</Label>
-          <Input
-            type='text'
-            id='user-id'
-            value={userId}
-            onChange={handleUserIdChange}
-          />
-        </LabelContainer>
-        <Button type='submit'>Submit & Go to shop</Button>
-      </Form>
-    </Container>
+    <>
+      <Announcement />
+      <Container>
+        <Text>
+          Welcome to our hypothetical grocery shopping task!<br></br>
+          <br></br>
+          We are conducting a study to understand how consumers shop for
+          groceries online, and we would love for you to participate. In this
+          task, we want you to choose the cold breakfast cereal that you are
+          most interested in purchasing.<br></br>
+          <br></br>
+          We have designed the online grocery shopping webpage to simulate a
+          real-life shopping experience as closely as possible, so please feel
+          free to explore all of its features! You can add items to your wish
+          list and view products in detail to make the most informed decision.
+          <br></br>
+          <br></br>
+          Once you have found the cold breakfast cereal that you want to
+          purchase the most, please add the item to your cart and check out. We
+          want you to enjoy the experience and have fun while helping us with
+          our research.
+        </Text>
+        <Form onSubmit={handleSubmit}>
+          <LabelContainer>
+            <Label htmlFor="user-id">User ID:</Label>
+            <Input
+              type="text"
+              id="user-id"
+              value={userId}
+              onChange={handleUserIdChange}
+            />
+          </LabelContainer>
+          <Button type="submit">Submit & Go to shop</Button>
+        </Form>
+      </Container>
+    </>
   );
 };
 

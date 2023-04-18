@@ -14,6 +14,9 @@ const ProductContainer = styled.div`
 const ProductDetail = styled.div`
   flex: 2;
   display: flex;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Image = styled.img`
@@ -43,7 +46,11 @@ const ProductAmountContainer = styled.div`
   align-items: center;
   margin-bottom: 20px;
   margin-left: 200px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
+const ProductAmountButton = styled.div``;
 
 const ProductAmount = styled.input`
   font-size: 24px;
@@ -146,7 +153,8 @@ export const CartItem = (props) => {
           <ProductName
             onClick={() => {
               navigate("/product/" + id);
-            }}>
+            }}
+          >
             {title}
           </ProductName>
           <ProductNut src={nut}></ProductNut>
@@ -155,36 +163,39 @@ export const CartItem = (props) => {
       </ProductDetail>
       <PriceDetail>
         <ProductAmountContainer>
-          <Remove
-            onClick={() => {
-              handleDecreaseEvent();
-              removeFromCart(id);
-            }}
-          />
-          <ProductAmount
-            value={cartItems[id]}
-            onChange={(e) =>
-              updateCartItemCount(Number(e.target.value), id)
-            }></ProductAmount>
-          <Add
-            onClick={() => {
-              handleIncreaseEvent();
-              addToCart(id);
-            }}
-          />
+          <ProductAmountButton>
+            <Remove
+              onClick={() => {
+                handleDecreaseEvent();
+                removeFromCart(id);
+              }}
+            />
+            <ProductAmount
+              value={cartItems[id]}
+              onChange={(e) => updateCartItemCount(Number(e.target.value), id)}
+            ></ProductAmount>
+            <Add
+              onClick={() => {
+                handleIncreaseEvent();
+                addToCart(id);
+              }}
+            />
+          </ProductAmountButton>
           <SaveButton
             onClick={() => {
               handleSaveToWishlistEvent();
               removeCartItem(id);
               addToWish(id);
-            }}>
+            }}
+          >
             Save it for later
           </SaveButton>
           <DeleteButton
             onClick={() => {
               handleDeleteEvent();
               removeCartItem(id);
-            }}>
+            }}
+          >
             Delete from cart
           </DeleteButton>
         </ProductAmountContainer>

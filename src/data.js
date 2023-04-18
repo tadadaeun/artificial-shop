@@ -8,15 +8,15 @@ export const PRODUCTS = [
     nutriScore: 1,
     des: "The original big biscuits you love are made with whole grain wheat and contains 0g saturated fat, 0g trans fat, and 0mg cholesterol per serving. Grab a box of Post Shredded Wheat Original Big Biscuit today!",
     img: "../images/1.png",
-    nutriImage: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/OG-SW-100.png",
+    nutriImage: "../images/1.jpg",
     detailImages: [
       "../images/1.png",
       "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/OG-SW-100.png",
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 2,
@@ -26,16 +26,16 @@ export const PRODUCTS = [
     nut: "../images/nutriA.png",
     nutriScore: 1,
     des: "Wheat for the adult you've grown into and sweet for the kid you never outgrew. Delicious and nutritious so you can feed your inner kidult.",
-    img: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    nutriImage: "https://i5.walmartimages.com/asr/8a5d0712-799e-44eb-a012-a3ae644f3397.ea0f2058aed3dd34ef21cec2365f368c.jpeg",
+    img: "../images/2.png",
+    nutriImage: "../images/2.jpg",
     detailImages: [
       "../images/2.png",
       "https://i5.walmartimages.com/asr/8a5d0712-799e-44eb-a012-a3ae644f3397.ea0f2058aed3dd34ef21cec2365f368c.jpeg"
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 3,
@@ -44,16 +44,17 @@ export const PRODUCTS = [
     category: "nutrient",
     nut: "../images/nutriA.png",
     nutriScore: 1,
+    des: "Power up with the delicious taste of sweetened honey-toasted whole grain puffs, crunchy cereal sticks, and crispy squares in every bite of this classic favorite. Every satisfying bowl is packed with fiber and 11 g of protein. Anytime is the right time to enjoy this wholesome blend of plant-based protein and grains for a sweet crunch that is sure to please.",
     img: "../images/3.png",
-    nutriImage: "https://m.media-amazon.com/images/I/81z+SL+oTJL._SX679_.jpg",
+    nutriImage: "../images/3.jpg",
     detailImages: [
       "../images/3.png",
       "https://m.media-amazon.com/images/I/81z+SL+oTJL._SX679_.jpg"
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 4,
@@ -62,12 +63,17 @@ export const PRODUCTS = [
     category: "popular",
     nut: "../images/nutriA.png",
     nutriScore: 1,
+    des: "With 44% of your daily recommended fiber, this wholesome wheat-bran cereal is a great way to start your day.",
     img: "../images/4.png",
-    nutriImage: "https://i5.walmartimages.com/asr/dbbe4a1b-07b2-45d9-81de-dd977f05838e.c95a61feed3b7f254fb39c6f1b2765c4.jpeg",
+    nutriImage: "../images/4.jpg",
     detailImages: [
       "../images/4.png",
       "https://i5.walmartimages.com/asr/dbbe4a1b-07b2-45d9-81de-dd977f05838e.c95a61feed3b7f254fb39c6f1b2765c4.jpeg",
-    ]
+    ],
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 5,
@@ -78,15 +84,15 @@ export const PRODUCTS = [
     nutriScore: 2,
     des: "This wholesome cereal is an excellent source of fiber.A satisfying crunch for breakfast, snack time or any time of the day.Post Grape-Nuts® are a good source of 8 essential vitamins & minerals.Heart Healthy - diets low in saturated fat and cholesterol, and as low as possible in trans fat, may reduce the risk of heart disease.Grape-Nuts® are high in iron and folate.This delicious cereal is full of the good stuff you love, with no artificial colors or flavors.Post Grape-Nuts® are certified Kosher.",
     img: "../images/5.png",
-    nutriImage: "https://i5.walmartimages.com/asr/8e510046-b2e4-4f9c-8760-fd05a950a975.7f86abefa79ab73823b65e650a656b1a.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    nutriImage: "../images/5.jpg",
     detailImages: [
       "../images/5.png",
       "https://i5.walmartimages.com/asr/8e510046-b2e4-4f9c-8760-fd05a950a975.7f86abefa79ab73823b65e650a656b1a.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 6,
@@ -96,15 +102,15 @@ export const PRODUCTS = [
     nutriScore: 2,
     des: "Great Grains® Crunchy Pecan™ cereal is made with crunchy pecans and whole grain wheat flakes, so you can start your morning off with wholesome energy and carry it into the rest of your day. Packed with 38g of whole grains per serving*, this heart healthy† cereal is the go-to breakfast option for accomplishing what you love to do each day.",
     img: "../images/6.png",
-    nutriImage: "https://m.media-amazon.com/images/I/71TF3MCsWdL._SL1500_.jpg",
+    nutriImage: "../images/6.jpg",
     detailImages: [
       "../images/6.png",
       "https://m.media-amazon.com/images/I/71TF3MCsWdL._SL1500_.jpg"
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 7,
@@ -115,15 +121,15 @@ export const PRODUCTS = [
     nutriScore: 2,
     des: "Add a delicious crunch to your cereal collection with the Oatmeal Squares Brown Sugar Cereal from Quaker Oats. Made from heart-healthy whole grains, this cereal is also a good source of protein, fiber and iron for a delicious, easy way to get nutrients you need. A hint of brown sugar adds a pop of sweetness to this cereal, making it tasty enough to enjoy as a snack or satisfy your sweet tooth.",
     img: "../images/7.png",
-    nutriImage: "https://target.scene7.com/is/image/Target/GUEST_802675d1-9c7a-423f-9a69-226ab7130d90?wid=1000&hei=1000&qlt=80&fmt=webp",
+    nutriImage: "../images/7.jpg",
     detailImages: [
       "../images/7.png",
       "https://target.scene7.com/is/image/Target/GUEST_802675d1-9c7a-423f-9a69-226ab7130d90?wid=1000&hei=1000&qlt=80&fmt=webp"
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 8,
@@ -134,15 +140,15 @@ export const PRODUCTS = [
     nutriScore: 2,
     des: "Wake up and enjoy the fruity fresh flavor of sun-ripened blueberry granola clusters mixed with crispy oat flakes found in each bite of Kashi Blueberry Clusters breakfast cereal. Includes 1, 13.4-ounce box of breakfast cereal with 5g of protein and 3g of fiber per serving. Organic, vegan, and Non-GMO Project Verified, Kashi Blueberry Clusters cereal combines nostalgic flavors with key nutrients making it the perfect way to make every morning a little brighter; Kashi Blueberry Clusters cereal is also a healthy choice for a snack anytime at home or on the go. Pack reusable baggies of cereal in your backpack, your car, or your desk at work for a tasty treat between meals. Whether you’re starting or ending your day, Kashi Blueberry Clusters breakfast cereal is a wholesome choice for satisfying your hunger. Anytime is the right time for Kashi GO Peanut Butter Crunch cereal. Kashi is making planet-positive choices to lower our company’s impact on climate change. We measure the amount of emissions from the manufacturing plants that create our foods and invest in renewable energy projects and programs in the US that remove the same amount of emissions from the air.",
     img: "../images/8.png",
-    nutriImage: "",
+    nutriImage: "../images/8.jpg",
     detailImages: [
       "../images/8.png",
       "https://target.scene7.com/is/image/Target/GUEST_c46710af-f8fb-45c7-bdd8-0e2bdcedaaee?wid=1000&hei=1000&qlt=80&fmt=webp"
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 9,
@@ -152,15 +158,15 @@ export const PRODUCTS = [
     nutriScore: 3,
     des: "Made with 100 percent natural whole grain oats, Cheerios is a healthy start to the day or a perfect, crunchy snack for the entire family.",
     img: "../images/9.png",
-    nutriImage: "https://target.scene7.com/is/image/Target/GUEST_2b743b4a-c626-40e1-b918-13811a70f1df?wid=1000&hei=1000&qlt=80&fmt=webp",
+    nutriImage: "../images/9.jpg",
     detailImages: [
       "../images/9.png",
       "https://target.scene7.com/is/image/Target/GUEST_2b743b4a-c626-40e1-b918-13811a70f1df?wid=1000&hei=1000&qlt=80&fmt=webp",
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 10,
@@ -170,15 +176,15 @@ export const PRODUCTS = [
     nutriScore: 3,
     des: "Make any morning sweeter with Honey Bunches of Oats® Vanilla. Delicious flakes, crunchy oat bunches and the delicious vanilla taste will have you grabbing your spoon for seconds. With 14 grams of whole grains* per serving and 10 essential vitamins and minerals, it nourishes you so you can start the day right.",
     img: "../images/10.png",
-    nutriImage: "https://www.honeybunchesofoats.com/wp-content/uploads/2018/05/HBO-Vanilla.jpg",
+    nutriImage: "../images/10.jpg",
     detailImages: [
       "../images/10.png",
       "https://www.honeybunchesofoats.com/wp-content/uploads/2018/05/HBO-Vanilla.jpg",
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 11,
@@ -188,15 +194,15 @@ export const PRODUCTS = [
     nutriScore: 3,
     des: "Attention Life Cereal lovers, there's room for two loves in your life. We've spiced up your favorite cereal with the lively taste of cinnamon. Enjoy the wholesome sweetness of Quaker Life Cereal, and cinnamon, made with whole grain Quaker Oats, and start your day off right.",
     img: "../images/11.png",
-    nutriImage: "https://i5.walmartimages.com/asr/4f0fe0a3-ef85-4fe6-bfe9-5224cc6213da_1.5d3348feeb59448d0979d1c234f0d0ae.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF",
+    nutriImage: "../images/11.jpg",
     detailImages: [
       "../images/11.png",
       "https://i5.walmartimages.com/asr/4f0fe0a3-ef85-4fe6-bfe9-5224cc6213da_1.5d3348feeb59448d0979d1c234f0d0ae.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF",
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 12,
@@ -206,15 +212,15 @@ export const PRODUCTS = [
     nutriScore: 3,
     des: "Wake up with Sunny and the simple goodness of Kellogg’s Raisin Bran® Cereal. You’ll find crispy whole grain bran flakes and plump, juicy raisins in every spoonful. A good source of fiber in every serving. Kellogg’s Raisin Bran® is also a heart-healthy choice",
     img: "../images/12.png",
-    nutriImage: "https://m.media-amazon.com/images/I/81hlE2-pywL._AC_SL1500_.jpg",
+    nutriImage: "../images/12.jpg",
     detailImages: [
       "../images/12.png",
       "https://m.media-amazon.com/images/I/81hlE2-pywL._AC_SL1500_.jpg",
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 13,
@@ -224,15 +230,15 @@ export const PRODUCTS = [
     nutriScore: 4,
     des: "Kellogg's Froot Loops is packed with delicious fruity taste, fruity aroma, and bright colors. Made with whole grains and lightly sweetened, Froot Loops is a fun part of a complete breakfast, and is a good source of fiber.",
     img: "../images/13.png",
-    nutriImage: "https://i5.walmartimages.com/asr/b8253753-c7e2-43ef-8989-6b3a36bd6bca.904e844eb58e0cea9f63bba91b2ce01f.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF",
+    nutriImage: "../images/13.jpg",
     detailImages: [
       "../images/13.png",
       "https://i5.walmartimages.com/asr/b8253753-c7e2-43ef-8989-6b3a36bd6bca.904e844eb58e0cea9f63bba91b2ce01f.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFFg",
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 14,
@@ -242,15 +248,15 @@ export const PRODUCTS = [
     nutriScore: 4,
     des: "For five decades and counting Lucky Charms cereal has featured frosted oats and colored marshmallows. Made with whole grain, Lucky Charms is fortified with 12 vitamins and minerals, and is a good source of calcium. ",
     img: "../images/14.png",
-    nutriImage: "https://storage.googleapis.com/images-cub-prd-9400d55.cub.prd.v8.commerce.mi9cloud.com/product-images/detail/d0f4b645-ff48-4e45-8645-dd334e6861fc.jpeg",
+    nutriImage: "../images/14.jpg",
     detailImages: [
       "../images/14.png",
       "https://storage.googleapis.com/images-cub-prd-9400d55.cub.prd.v8.commerce.mi9cloud.com/product-images/detail/d0f4b645-ff48-4e45-8645-dd334e6861fc.jpeg",
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 15,
@@ -260,15 +266,15 @@ export const PRODUCTS = [
     nutriScore: 4,
     des: "The crunchy flakes perfectly coated with sweetened frosting gives every morning a great start. ",
     img: "../images/15.png",
-    nutriImage: "https://m.media-amazon.com/images/I/81lo7TJasdL._SL1500_.jpg",
+    nutriImage: "../images/15.jpg",
     detailImages: [
       "../images/15.png",
       "https://m.media-amazon.com/images/I/81lo7TJasdL._SL1500_.jpg",
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 16,
@@ -278,15 +284,15 @@ export const PRODUCTS = [
     nutriScore: 4,
     des: "Cocoa Pebbles is a sweetened rice cereal that is overflowing with chocolately delight. Cocoa Pebbles, along with Fred Flintsone, Barney Rubble and the rest of The Flinstones gang, have been making mornings rock for more than 40 years.",
     img: "../images/16.png",
-    nutriImage: "https://target.scene7.com/is/image/Target/GUEST_bc3a592b-8575-476b-aede-00537846a3a4?wid=1000&hei=1000&qlt=80&fmt=webp",
+    nutriImage: "../images/16.jpg",
     detailImages: [
       "../images/16.png",
       "https://target.scene7.com/is/image/Target/GUEST_bc3a592b-8575-476b-aede-00537846a3a4?wid=1000&hei=1000&qlt=80&fmt=webp",
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 17,
@@ -296,15 +302,15 @@ export const PRODUCTS = [
     nutriScore: 5,
     des: "Enjoy the delicious taste of s’mores right in your cereal bowl with chocolatey goodness, sweet marshmallows and the delicious taste of HONEY MAID® Graham Crackers. Never have s’mores indoors been so delicious!",
     img: "../images/17.png",
-    nutriImage: "https://www.postconsumerbrands.com/honey-maid/wp-content/uploads/sites/28/2019/06/GCM-100-RTE.png",
+    nutriImage: "../images/17.jpg",
     detailImages: [
       "../images/17.png",
       "https://www.postconsumerbrands.com/honey-maid/wp-content/uploads/sites/28/2019/06/GCM-100-RTE.png",
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 18,
@@ -314,15 +320,15 @@ export const PRODUCTS = [
     nutriScore: 5,
     des: "The Marshmallow-y way to rock Fruity PEBBLES™ with Marshmallows is a sweet, fruity treat full of marshmallow-y goodness. To experience this fun-tastic fruity marshmallow-y flavor explosion, just pour yourself a bowl any time of the day!",
     img: "../images/18.png",
-    nutriImage: "https://www.postpebblescereal.com/wp-content/uploads/2020/05/154025-FPM-100-RTE.jpg",
+    nutriImage: "../images/18.jpg",
     detailImages: [
       "../images/18.png",
       "https://www.postpebblescereal.com/wp-content/uploads/2020/05/154025-FPM-100-RTE.jpg",
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 19,
@@ -332,15 +338,15 @@ export const PRODUCTS = [
     nutriScore: 5,
     des: "The original Crunch! You'll start your day with a smile when you enjoy a bowl of this great‒tasting, crunchy sweetened corn and oat cereal. ",
     img: "../images/19.png",
-    nutriImage: "https://i5.walmartimages.com/asr/2895a217-a48b-46ed-9d6b-755dffb5cc15.f39875ccd622596fade65c8305a958c4.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF",
+    nutriImage: "../images/19.jpg",
     detailImages: [
       "../images/19.png",
       "https://i5.walmartimages.com/asr/2895a217-a48b-46ed-9d6b-755dffb5cc15.f39875ccd622596fade65c8305a958c4.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF",
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   },
   {
     id: 20,
@@ -350,14 +356,14 @@ export const PRODUCTS = [
     nutriScore: 5,
     des: "In 1965, Quisp landed on Earth with his Quazy Energy Cereal – and the world's been a better place ever since, especially during breakfast. The saucer-shaped, crunchy corn cereal has delighted kids and adults everywhere. Bring Quisp to your house and home planet today. The crispy flavor is out of this world.",
     img: "../images/20.png",
-    nutriImage: "https://i5.walmartimages.com/asr/e02f43af-9c2b-4a55-88bc-b7684aba6f76_1.9d7effa1fe488f941650b8b6e9f8fb9d.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF",
+    nutriImage: "../images/20.jpg",
     detailImages: [
       "../images/20.png",
       "https://i5.walmartimages.com/asr/e02f43af-9c2b-4a55-88bc-b7684aba6f76_1.9d7effa1fe488f941650b8b6e9f8fb9d.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF",
     ],
-    recommendingImage1: "https://www.postshreddedwheat.com/wp-content/uploads/2018/06/box-original.png",
-    recommendingImage2: "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508584/kicproductimage-124452_optimized_new_3-14-22.png",
-    recommendingImage3: "https://images.kglobalservices.com/www.kashi.com/en_us/product/product_4508518/kicproductimage-122429_kashigooriginal.jpg",
-    recommendingImage4: "https://i5.walmartimages.com/asr/15479863-f593-4917-924e-5784ccf283fc.c37d21c6788a302985a7f178f3f6bbbc.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+    recommendingImage1: "../images/1.png",
+    recommendingImage2: "../images/2.png",
+    recommendingImage3: "../images/3.png",
+    recommendingImage4: "../images/4.png"
   }
 ]

@@ -4,7 +4,11 @@ import styled from "styled-components";
 import { PRODUCTS } from "../data";
 import Products from "./Products";
 
-const Container = styled.div``;
+const Container = styled.div`
+  @media (max-width: 768px) {
+    margin-top: 80px;
+  }
+`;
 
 const ProductContainer = styled.div`
   width: 95vw;
@@ -21,6 +25,10 @@ const FilterContainer = styled.div`
 
 const Filter = styled.div`
   margin: 0 30px;
+  @media (max-width: 768px) {
+    margin-top: 30px;
+    margin-right: 0;
+  }
 `;
 
 const FilterTitle = styled.span`
