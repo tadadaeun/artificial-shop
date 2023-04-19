@@ -22,6 +22,9 @@ const ProductDetail = styled.div`
 const Image = styled.img`
   width: 200px;
   margin-top: 20px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Details = styled.div`
@@ -31,7 +34,11 @@ const Details = styled.div`
   justify-content: space-around;
 `;
 
-const ProductName = styled.span``;
+const ProductName = styled.span`
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 const PriceDetail = styled.div`
   flex: 1;

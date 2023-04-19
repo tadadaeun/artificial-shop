@@ -199,7 +199,7 @@ const Cart = () => {
 
   const alertHandler = () => {
     const selectedItems = getSelectedCartItemIds();
-    if (selectedItems.length === 1) {
+    if (totalAmount === 1) {
       handleCheckoutEvent(selectedItems[0]);
       navigate("/finish");
     } else {

@@ -9,6 +9,7 @@ const Container = styled.div`
   flex: 1;
   margin: 50px 5px 5px 5px;
   min-width: 280px;
+  max-width: 280px;
   height: auto;
   position: relative;
   display: flex;
@@ -106,7 +107,8 @@ const Product = (props) => {
           sendLog("product_hover", {
             label: `Hovered on Product ${title}`,
           });
-        }}>
+        }}
+      >
         <Image src={img} />
         <Info>
           <Title>{title}</Title>
@@ -137,7 +139,8 @@ const Product = (props) => {
               label: `Clicked the button to add ${title} to the Cart `,
             });
             addToCart(id);
-          }}>
+          }}
+        >
           Add to cart {cartItemAmount > 0 && <> ({cartItemAmount}) </>}
         </Button>
       </ButtonContainer>

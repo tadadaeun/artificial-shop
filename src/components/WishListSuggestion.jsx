@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 import { Add, DeleteOutline, Remove } from "@material-ui/icons";
 import { ShopContext } from "../context/shop-context";
+import { useNavigate } from "react-router-dom";
 
 const ProductContainer = styled.div`
   width: 300px;
@@ -20,6 +21,9 @@ const ProductDetail = styled.div`
 
 const Image = styled.img`
   width: 150px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Details = styled.div`
@@ -30,7 +34,11 @@ const Details = styled.div`
   justify-content: space-around;
 `;
 
-const ProductName = styled.span``;
+const ProductName = styled.span`
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -61,13 +69,25 @@ export const WishItem = (props) => {
   const { id, title, price, img } = props.data;
   const { addToCart, cartItems, removeFromWish } = useContext(ShopContext);
   const cartItemAmount = cartItems[id];
+  const navigate = useNavigate();
 
   return (
     <ProductContainer>
       <ProductDetail>
-        <Image src={img} />
+        <Image
+          src={img}
+          onClick={() => {
+            navigate("/product/" + id);
+          }}
+        />
         <Details>
-          <ProductName>{title}</ProductName>
+          <ProductName
+            onClick={() => {
+              navigate("/product/" + id);
+            }}
+          >
+            {title}
+          </ProductName>
         </Details>
         <ButtonContainer>
           <Button onClick={() => addToCart(id)}>Add to cart</Button>

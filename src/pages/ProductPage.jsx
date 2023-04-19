@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Add, Remove } from "@material-ui/icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -120,6 +120,10 @@ const ProductPage = () => {
     });
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
   return (
     <Container>
       <Announcement />
@@ -129,7 +133,9 @@ const ProductPage = () => {
           <ProductImage detailImages={detailImages} onClick={onImageClick} />
           <InfoContainer>
             <Title>{title}</Title>
-            <Nut src={nut} />
+            {process.env.REACT_APP_NUTRITION_SCORE === "SHOW" && (
+              <Nut src={nut}></Nut>
+            )}
             <Price>${price}</Price>
             <AddContainer>
               <AmountContainer>
@@ -148,7 +154,6 @@ const ProductPage = () => {
                   if (count > 0) {
                     onCheckoutClick();
                     updateCartItemCount(Number(count), id);
-                    navigate("/cart");
                   } else {
                     alert("Please select the quantity");
                   }
