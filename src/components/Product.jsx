@@ -7,7 +7,7 @@ import useAmplitude from "../hooks/use-amplitude";
 
 const Container = styled.div`
   flex: 1;
-  margin: 50px 5px 5px 5px;
+  margin: 50px 25px 5px 25px;
   min-width: 280px;
   max-width: 280px;
   height: auto;
