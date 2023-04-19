@@ -13,6 +13,35 @@ const Container = styled.div`
   @media (max-width: 768px) {
     margin: 30px;
     height: auto;
+    display: none;
+  }
+`;
+
+const DecoBar = styled.div`
+  height: 25px;
+  background-color: #006600;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 100px;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+  }
+`;
+
+const Backdrop = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
   }
 `;
 
@@ -79,7 +108,8 @@ const IntroPage = () => {
 
   return (
     <>
-      <Announcement />
+      <Backdrop></Backdrop>
+      <DecoBar />
       <Container>
         <Text>
           Welcome to our hypothetical grocery shopping task!<br></br>
