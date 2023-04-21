@@ -159,7 +159,7 @@ const ProductPage = () => {
                   }
                 }}
               >
-                Check out in my cart
+                Add to cart cart
               </Button>
             </AddContainer>
           </InfoContainer>

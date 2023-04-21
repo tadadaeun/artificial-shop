@@ -40,9 +40,21 @@ const Backdrop = styled.div`
   height: 100vh;
   background-color: white;
   display: none;
+
   @media (max-width: 768px) {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -50px;
   }
+`;
+
+const MobileText = styled.div`
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 300;
+  width: 70vw;
+  line-height: 1.8;
 `;
 
 const Text = styled.div`
@@ -108,7 +120,12 @@ const IntroPage = () => {
 
   return (
     <>
-      <Backdrop></Backdrop>
+      <Backdrop>
+        <MobileText>
+          위 설문은 데스크탑 디바이스에 최적화 되어있습니다, 설문에 참여하기
+          위해서는 데스크탑으로 접속해주세요.
+        </MobileText>
+      </Backdrop>
       <DecoBar />
       <Container>
         <Text>

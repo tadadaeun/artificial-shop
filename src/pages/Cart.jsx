@@ -155,8 +155,9 @@ const AlertContainer = styled.div`
   top: 30%;
   width: 650px;
   height: 350px;
-  background-color: #b3b1b1ab;
+  background-color: #d0d0d0cc;
   border-radius: 10px;
+  border: 0.5px solid lightgray;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -167,7 +168,19 @@ const AlertText = styled.div`
   width: 80%;
 `;
 
-const AlertButton = styled.button``;
+const AlertButton = styled.button`
+  margin-top: 30px;
+  width: 150px;
+  padding: 10px;
+  background-color: #006600;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  &:hover {
+    background-color: #194919;
+  }
+`;
 
 const Cart = () => {
   const {
@@ -260,9 +273,9 @@ const Cart = () => {
       </WhishListContainer>
       <AlertContainer style={{ visibility: alert ? "visible" : "hidden" }}>
         <AlertText>
-          Please ensure that you have only put one item in your cart. If you
-          have added more than one item, kindly remove the extra items and keep
-          only one.
+          Please ensure that you have only put one item in your cart. <br />
+          <br /> If you have added more than one item, kindly remove the extra
+          items and keep only one.
         </AlertText>
         <AlertButton onClick={alertHandler}>Go back to cart</AlertButton>
       </AlertContainer>

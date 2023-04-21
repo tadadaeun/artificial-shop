@@ -126,6 +126,7 @@ const Image = styled.img`
 
 const Title = styled.div`
   width: 80%;
+  margin-top: 15px;
 `;
 
 const options = {

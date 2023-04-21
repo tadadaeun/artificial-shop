@@ -27,7 +27,7 @@ const ImgPre = styled.img`
 
 const Image = styled.div`
   height: 100%;
-  margin: 0 30px;
+  margin: 0 40px;
   object-fit: scale-down;
 `;
 
