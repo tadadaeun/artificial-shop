@@ -107,6 +107,7 @@ const ImageContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 0 10px;
+  cursor: pointer;
   @media (max-width: 768px) {
     flex-direction: column;
   }

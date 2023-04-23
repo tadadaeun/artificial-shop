@@ -159,7 +159,7 @@ const ProductPage = () => {
                   }
                 }}
               >
-                Add to cart cart
+                Add to cart
               </Button>
             </AddContainer>
           </InfoContainer>

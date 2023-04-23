@@ -182,7 +182,62 @@ const AlertButton = styled.button`
   }
 `;
 
-const Cart = () => {
+const RecommendingContainer = styled.div`
+  width: 90vw;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px;
+`;
+
+const RecommendingText = styled.div`
+  font-weight: 300;
+  font-size: 1.6rem;
+  margin: 10px;
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10px;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const Detail = styled.div`
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Image = styled.img`
+  width: 180px;
+`;
+
+const RecommendingTitle = styled.div`
+  width: 80%;
+  margin-top: 15px;
+`;
+
+const Cart = (props) => {
+  const { pathname } = useLocation();
+
+  const splits = pathname.split("/");
+
+  const prodId = Number(splits[splits.length - 1]);
+
+  const {
+    recommendingImage1,
+    recommendingImage2,
+    recommendingImage3,
+    recommendingImage4,
+  } = PRODUCTS[prodId - 1];
+
   const {
     wishItems,
     cartItems,
@@ -271,6 +326,55 @@ const Cart = () => {
           })}
         </WhishListItems>
       </WhishListContainer>
+      <RecommendingContainer>
+        <RecommendingText>Featured Products</RecommendingText>
+        <ImageContainer>
+          <Detail>
+            <Image
+              src={recommendingImage1}
+              onClick={() => {
+                navigate("/product/1");
+              }}
+            ></Image>
+            <RecommendingTitle>
+              Post Shredded Wheat Big Biscuit Whole Grain Cereal
+            </RecommendingTitle>
+          </Detail>
+          <Detail>
+            <Image
+              src={recommendingImage2}
+              onClick={() => {
+                navigate("/product/2");
+              }}
+            ></Image>
+            <RecommendingTitle>
+              Kellogg's Frosted Mini-Wheats Cereal
+            </RecommendingTitle>
+          </Detail>
+          <Detail>
+            <Image
+              src={recommendingImage3}
+              onClick={() => {
+                navigate("/product/3");
+              }}
+            ></Image>
+            <RecommendingTitle>
+              Kashi Go, Breakfast Cereal, Original
+            </RecommendingTitle>
+          </Detail>
+          <Detail>
+            <Image
+              src={recommendingImage4}
+              onClick={() => {
+                navigate("/product/4");
+              }}
+            ></Image>
+            <RecommendingTitle>
+              Kellogg's All-Bran Original Cold Breakfast Cereal
+            </RecommendingTitle>
+          </Detail>
+        </ImageContainer>
+      </RecommendingContainer>
       <AlertContainer style={{ visibility: alert ? "visible" : "hidden" }}>
         <AlertText>
           Please ensure that you have only put one item in your cart. <br />
