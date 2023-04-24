@@ -225,18 +225,12 @@ const RecommendingTitle = styled.div`
 `;
 
 const Cart = (props) => {
-  const { pathname } = useLocation();
-
-  const splits = pathname.split("/");
-
-  const prodId = Number(splits[splits.length - 1]);
-
   const {
     recommendingImage1,
     recommendingImage2,
     recommendingImage3,
     recommendingImage4,
-  } = PRODUCTS[prodId - 1];
+  } = PRODUCTS[0];
 
   const {
     wishItems,
