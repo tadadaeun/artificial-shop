@@ -9,13 +9,16 @@ const TrackingProvider = ({ children }) => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (location.pathname !== "/" && !userId) {
-      navigate("/");
-      alert("Please enter user ID");
+    if (location.pathname === "/") {
       return;
     }
 
-    amplitude.getInstance().logEvent(`${location.pathname} page viewed`);
+    if (!userId) {
+      navigate("/");
+      alert("Please enter user ID");
+    } else {
+      amplitude.getInstance().logEvent(`${location.pathname} page viewed`);
+    }
   }, [location]);
 
   return <>{children}</>;
