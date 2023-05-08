@@ -122,8 +122,8 @@ const IntroPage = () => {
     <>
       <Backdrop>
         <MobileText>
-          위 설문은 데스크탑 디바이스에 최적화 되어있습니다, 설문에 참여하기
-          위해서는 데스크탑으로 접속해주세요.
+          This survey is optimized for desktop devices. To participate in the
+          survey, please access it through a desktop.
         </MobileText>
       </Backdrop>
       <DecoBar />
