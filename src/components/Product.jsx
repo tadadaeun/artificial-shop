@@ -82,7 +82,7 @@ const Icon = styled.div`
 
 const Product = (props) => {
   const { id, title, price, img, nut } = props.data;
-  const { addToCart, cartItems, wishItems, addToWish } =
+  const { addToCart, cartItems, wishItems, addToWish, removeFromWish } =
     useContext(ShopContext);
   const navigate = useNavigate();
   const selected = wishItems[id];
@@ -121,7 +121,11 @@ const Product = (props) => {
       <ButtonContainer>
         <Icon>
           {selected > 0 ? (
-            <Favorite />
+            <Favorite
+              onClick={() => {
+                removeFromWish(id);
+              }}
+            />
           ) : (
             <FavoriteBorderOutlined
               onClick={() => {
