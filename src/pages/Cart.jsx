@@ -9,6 +9,7 @@ import { ShopContext } from "../context/shop-context";
 import { useLocation, useNavigate } from "react-router-dom";
 import WishListSuggestion from "../components/WishListSuggestion";
 import useAmplitude from "../hooks/use-amplitude";
+import * as _ from "lodash";
 
 const Container = styled.div``;
 
@@ -256,6 +257,16 @@ const Cart = (props) => {
     sendLog("checkout button click", {
       label: `Clicked Checkout button`,
       product_id: id,
+    });
+
+    let ids = [];
+    _.forIn(wishItems, function(v, k) {
+      if (v > 0) ids.push(k);
+    })
+    sendLog("finished", {
+      label: "Purchases and wishlist items",
+      purchase_item_id: id,
+      wishlist_item_ids: ids.toString(),
     });
   };
 
