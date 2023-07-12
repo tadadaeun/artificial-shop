@@ -58,6 +58,18 @@ const Finish = () => {
           After answering a few more questions, we will offer you a validation
           code.
             <br /><br />
+
+            <button style={{
+                backgroundColor: "#006600",
+                padding: "10px 20px",
+                border: "none",
+            }}>
+                <a href="https://www.surveymonkey.com/r/2YQ7Z5V" target="_blank" style={{
+                    color: "white",
+                }}>Go back to the survey</a>
+            </button>
+
+            <br /><br />
             Your ID: {sessionStorage.getItem("userId")}
         </Text>
       </Container>
