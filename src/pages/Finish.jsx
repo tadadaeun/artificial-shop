@@ -57,6 +57,8 @@ const Finish = () => {
           Please go back to the main survey and continue. <br />
           After answering a few more questions, we will offer you a validation
           code.
+            <br /><br />
+            Your ID: {sessionStorage.getItem("userId")}
         </Text>
       </Container>
     </>
