@@ -64,7 +64,7 @@ const Finish = () => {
                 padding: "10px 20px",
                 border: "none",
             }}>
-                <a href="https://www.surveymonkey.com/r/2YQ7Z5V" target="_blank" style={{
+                <a href="https://neoma.eu.qualtrics.com/jfe/form/SV_aUXlcu6orlWnNiu" target="_blank" style={{
                     color: "white",
                 }}>Go back to the survey</a>
             </button>
