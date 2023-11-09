@@ -54,12 +54,14 @@ const Finish = () => {
         <Text>
           We have successfully finished the second step of the whole process.
           <br />
-          Please go back to the main survey and continue. <br />
+          Please go back to the main survey and proceed to the next question by clicking the button [->] on the bottow right corner of the window.
+
+          {/* Please go back to the main survey and continue. <br />
           After answering a few more questions, we will offer you a validation
-          code.
+          code. */}
             <br /><br />
 
-            <button style={{
+            {/* <button style={{
                 backgroundColor: "#006600",
                 padding: "10px 20px",
                 border: "none",
@@ -70,7 +72,7 @@ const Finish = () => {
             </button>
 
             <br /><br />
-            Your ID: {sessionStorage.getItem("userId")}
+            Your ID: {sessionStorage.getItem("userId")} */}
         </Text>
       </Container>
     </>
