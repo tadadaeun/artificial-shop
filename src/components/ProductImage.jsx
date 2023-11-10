@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import "react-medium-image-zoom/dist/styles.css";
-import { GlassMagnifier } from "react-image-magnifiers";
+//import "react-medium-image-zoom/dist/styles.css";
+//import { GlassMagnifier } from "react-image-magnifiers";
+import InnerImageZoom from 'react-inner-image-zoom';
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import styled from "styled-components";
 
 const ImgContainer = styled.div`
@@ -26,9 +28,10 @@ const ImgPre = styled.img`
 `;
 
 const Image = styled.div`
-  height: 100%;
-  margin: 0 40px;
+  max-width: 300px;
+  margin: 0 100px;
   object-fit: scale-down;
+  overflow: auto;
 `;
 
 const ProductImage = ({ detailImages = [], onClick }) => {
@@ -47,17 +50,14 @@ const ProductImage = ({ detailImages = [], onClick }) => {
           ></ImgPre>
         ))}
       </ImgPreContainer>
+
       <Image>
-        <GlassMagnifier
-          style={{
-            height: "100%",
-          }}
-          imageSrc={detailImages[selectedIdx]}
-          className="glass-magnifier"
-          square="false"
-          magnifierSize="40%"
-        />
+        <InnerImageZoom 
+        zoomScale="1.5" src={detailImages[selectedIdx]}
+          className="inner-image-zoom"
+          />
       </Image>
+      
     </ImgContainer>
   );
 };

@@ -10,7 +10,6 @@ body {
   margin: 0;
 }
 
-.glass-magnifier > img {
-  max-height: 100%;
-  max-width: 300px;
+.inner-image > img {
+  margin-left: -100px;
 }

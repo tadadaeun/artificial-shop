@@ -35,7 +35,7 @@ const Info = styled.div``;
 const Title = styled.div`
   height: 45px;
   font-weight: 500;
-  margin: 20px 10px 5px 10px;
+  margin: 20px 10px 35px 10px;
 `;
 
 const Nut = styled.img`
@@ -45,7 +45,7 @@ const Nut = styled.img`
 
 const Price = styled.div`
   color: #232323;
-  margin: 0 5px;
+  margin: 10px 5px;
 `;
 
 const ButtonContainer = styled.div`
