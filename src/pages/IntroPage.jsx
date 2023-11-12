@@ -143,8 +143,8 @@ const IntroPage = () => {
           <br></br>
           <br></br>
           Once you have found the cold breakfast cereal that you want to
-          purchase the most, please add the item to your cart. Also please click 
-          the "CHECKOUT NOW" button to complete your shopping task.
+          purchase the most, please add the item to your cart. Also please go to 
+          your cart and click the "CHECKOUT NOW" button to complete your shopping task.
           <br></br>
           <br></br>          
           We want you to enjoy the experience and have fun while helping us with
