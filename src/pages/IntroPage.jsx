@@ -143,8 +143,11 @@ const IntroPage = () => {
           <br></br>
           <br></br>
           Once you have found the cold breakfast cereal that you want to
-          purchase the most, please add the item to your cart and check out. We
-          want you to enjoy the experience and have fun while helping us with
+          purchase the most, please add the item to your cart. Also please click 
+          the "CHECKOUT NOW" button to complete your shopping task.
+          <br></br>
+          <br></br>          
+          We want you to enjoy the experience and have fun while helping us with
           our research.
         </Text>
         <Form onSubmit={handleSubmit}>
