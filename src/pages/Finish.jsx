@@ -59,15 +59,12 @@ const Finish = () => {
       <DecoBar />
       <Container>
         <Text>
-          We have successfully finished the second step of the whole process.
-          <br />
-          Please go back to the main survey and provide the number below in the textbox below the shopping website.
-          <br />
-          <br /></Text>
-          <HighlightText>12345
-          <br />
-          <br /></HighlightText>
-          <Text>Then proceed to the next question by clicking the button [->] on the bottow right corner of the window.
+          We have successfully finished the second step of the whole process.<br />
+          Please enter the following number in the textbox located below this window in the main survey.<br />
+          </Text>
+          <HighlightText>12345<br /><br />
+          </HighlightText>
+          <Text>Then click the button [->] on the bottow right corner of the window to proceed to the next page.
 
           {/* Please go back to the main survey and continue. <br />
           After answering a few more questions, we will offer you a validation
