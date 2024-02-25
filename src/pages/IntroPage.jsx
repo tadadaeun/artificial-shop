@@ -99,6 +99,13 @@ const Button = styled.button`
   border-radius: 5px;
 `;
 
+const HighlightText = styled.div`
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: red;
+  margin: 10px;
+`;
+
 const IntroPage = () => {
   const [userId, setUserId] = React.useState("");
   const navigate = useNavigate();
@@ -143,10 +150,17 @@ const IntroPage = () => {
           <br></br>
           <br></br>
           Once you have found the cold breakfast cereal that you want to
-          purchase the most, please add the item to your cart. Also please go to 
+          purchase the most, please add the item to your cart. 
+          <br></br>
+          <br></br>
+          </Text>
+          <HighlightText>
+          Also, please make sure to go to 
           your cart and click the "CHECKOUT NOW" button to complete your shopping task.
           <br></br>
-          <br></br>          
+          <br></br>      
+          </HighlightText>
+          <Text>    
           We want you to enjoy the experience and have fun while helping us with
           our research.
         </Text>
