@@ -54,7 +54,7 @@ const Finish = () => {
         <Text>
           We have successfully finished the second step of the whole process.
           <br />
-          Please go back to the main survey and provide the following number: <b><p style="color:red;">12345</p></b> in the textbox below the shopping website.
+          Please go back to the main survey and provide the following number: <FONT COLOR="#ff0000"> 12345</FONT> in the textbox below the shopping website.
           <br />
           Then proceed to the next question by clicking the button [->] on the bottow right corner of the window.
 
