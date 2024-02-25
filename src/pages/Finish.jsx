@@ -46,6 +46,13 @@ const Text = styled.div`
   }
 `;
 
+const HighlightText = styled.div`
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: red;
+  margin: 10px;
+`;
+
 const Finish = () => {
   return (
     <>
@@ -54,9 +61,13 @@ const Finish = () => {
         <Text>
           We have successfully finished the second step of the whole process.
           <br />
-          Please go back to the main survey and provide the following number: <b style='color:blue !important;'>12345</b> in the textbox below the shopping website.
+          Please go back to the main survey and provide the number below in the textbox below the shopping website.</Text>
           <br />
-          Then proceed to the next question by clicking the button [->] on the bottow right corner of the window.
+          <br />
+          <HighlightText>12345</HighlightText>
+          <br />
+          <br />
+          <Text>Then proceed to the next question by clicking the button [->] on the bottow right corner of the window.
 
           {/* Please go back to the main survey and continue. <br />
           After answering a few more questions, we will offer you a validation
