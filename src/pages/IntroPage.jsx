@@ -101,7 +101,7 @@ const Button = styled.button`
 
 const HighlightText = styled.div`
   font-weight: 300;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   color: red;
   margin: 10px;
 `;
