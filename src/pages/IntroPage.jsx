@@ -145,8 +145,8 @@ const IntroPage = () => {
           <br></br>
           We have designed the online grocery shopping webpage to simulate a
           real-life shopping experience as closely as possible, so please feel
-          free to explore all of its features! You can add items to your wish
-          list and view products in detail to make the most informed decision.
+          free to explore all of its features! You can add items to your wishlist 
+          and view products in detail to make the most informed decision.
           <br></br>
           <br></br>
           Once you have found the cold breakfast cereal that you want to
