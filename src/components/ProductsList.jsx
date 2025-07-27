@@ -58,7 +58,9 @@ const ProductsList = () => {
   const location = useLocation();
   const cat = location.pathname.split("/")[0];
   // const [filter, setFilter] = useState("all");
-  const [filter, setFilter] = useState("nutrient");
+  const [filter, setFilter] = useState(() =>
+    Math.random() < 0.5 ? "nutrient" : "lowest"
+  );
   const [sort, setSort] = useState("lowest");
 
   const refinedData = PRODUCTS.filter(({ category }) => {
@@ -94,8 +96,7 @@ const ProductsList = () => {
           <FilterOptions
             name="sort"
             onChange={(e) => setSort(e.target.value)}
-            // defaultValue="lowest"
-            defaultValue="default"
+            defaultValue="lowest"
           >
             <FilterOption value="default">select option</FilterOption>
             <FilterOption value="lowest">lowest price</FilterOption>
