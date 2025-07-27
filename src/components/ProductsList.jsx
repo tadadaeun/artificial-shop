@@ -68,8 +68,7 @@ const ProductsList = () => {
     else if (sort === "highest") return b.price - a.price;
     else if (sort === "nutrient") {
       // TODO - 오브젝트 매핑추가!
-      // return b.nut > a.nut;
-      return b.nutriScore - a.nutnutriScore;
+      return b.nut > a.nut;
     }
   });
 
@@ -94,8 +93,7 @@ const ProductsList = () => {
           <FilterOptions
             name="sort"
             onChange={(e) => setSort(e.target.value)}
-            // defaultValue="lowest"
-            defaultValue="nutrient"
+            defaultValue="lowest"
           >
             <FilterOption value="default">select option</FilterOption>
             <FilterOption value="lowest">lowest price</FilterOption>
