@@ -54,13 +54,14 @@ const FilterOption = styled.option`
   }
 `;
 
+//추가
+const initialFilter = Math.random() < 0.5 ? "nutrient" : "lowest";
+
 const ProductsList = () => {
   const location = useLocation();
   const cat = location.pathname.split("/")[0];
   // const [filter, setFilter] = useState("all");
-  const [filter, setFilter] = useState(() =>
-    Math.random() < 0.5 ? "nutrient" : "lowest"
-  );
+  const [filter, setFilter] = useState(initialFilter); //이렇게 사용
   const [sort, setSort] = useState("lowest");
 
   const refinedData = PRODUCTS.filter(({ category }) => {
