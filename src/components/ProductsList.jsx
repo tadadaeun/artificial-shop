@@ -93,7 +93,8 @@ const ProductsList = () => {
           <FilterOptions
             name="sort"
             onChange={(e) => setSort(e.target.value)}
-            defaultValue="lowest"
+            // defaultValue="lowest"
+            defaultValue="default"
           >
             <FilterOption value="default">select option</FilterOption>
             <FilterOption value="lowest">lowest price</FilterOption>
