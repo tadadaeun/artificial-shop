@@ -58,7 +58,8 @@ const ProductsList = () => {
   const location = useLocation();
   const cat = location.pathname.split("/")[0];
   const [filter, setFilter] = useState("all");
-  const [sort, setSort] = useState("lowest");
+  // const [sort, setSort] = useState("lowest");
+  const [sort, setSort] = useState("nutrient");
 
   const refinedData = PRODUCTS.filter(({ category }) => {
     if (filter === "all") return true;
