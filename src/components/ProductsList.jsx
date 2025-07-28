@@ -54,7 +54,10 @@ const FilterOption = styled.option`
   }
 `;
 
-const initialSort = Math.random() < 0.5 ? "lowest" : "nutrient"; //추가
+const isNutritionScoreEnabled = process.env.REACT_APP_NUTRITION_SCORE === "SHOW";
+const initialSort = isNutritionScoreEnabled
+  ? (Math.random() < 0.5 ? "lowest" : "nutrient")
+  : "lowest";
 
 const ProductsList = () => {
   const location = useLocation();
@@ -73,6 +76,7 @@ const ProductsList = () => {
       // TODO - 오브젝트 매핑추가!
       return b.nut > a.nut;
     }
+    return 0;
   });
 
   return (
