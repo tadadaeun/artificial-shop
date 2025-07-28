@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import amplitude from "amplitude-js";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { PRODUCTS } from "../data";
@@ -65,6 +66,22 @@ const ProductsList = () => {
   const [filter, setFilter] = useState("all");
   // const [sort, setSort] = useState("lowest");
   const [sort, setSort] = useState(initialSort); //변경
+
+  // Amplitude 이벤트: nutrition_score 상태와 초기 sort 값
+  useEffect(() => {
+    amplitude.getInstance().logEvent(
+      isNutritionScoreEnabled
+        ? "nutrition_score_SHOW"
+        : "nutrition_score_NOT_SHOW"
+    );
+    if (isNutritionScoreEnabled) {
+      if (initialSort === "lowest") {
+        amplitude.getInstance().logEvent("nutrition_score_SHOW_initialSort_lowest");
+      } else if (initialSort === "nutrient") {
+        amplitude.getInstance().logEvent("nutrition_score_SHOW_initialSort_nutrient");
+      }
+    }
+  }, []);
 
   const refinedData = PRODUCTS.filter(({ category }) => {
     if (filter === "all") return true;
